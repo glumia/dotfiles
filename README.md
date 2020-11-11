@@ -15,6 +15,7 @@ opportunity to receive feedbacks.
   .vimrc](https://missing.csail.mit.edu/2020/editors/)
 - [Arch Wiki](https://wiki.archlinux.org/)
 - [Global .gitignore](https://gist.github.com/subfuzion/db7f57fff2fb6998a16c)
+- [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) (for aliases)
 
 
 #### Hint
