@@ -1,0 +1,21 @@
+[user]
+	signingkey = 271ECF56EA002788
+	email = g.lumia@outlook.com
+	name = Giuseppe Lumia
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[sendemail]
+	smtpserver = smtp.office365.com
+	smtpuser = g.lumia@outlook.com
+	smtpencryption = tls
+	smtpserverport = 587
+	annotate = yes
+[pull]
+	rebase = true
+[include]
+  path = ~/.gitconfig-secret

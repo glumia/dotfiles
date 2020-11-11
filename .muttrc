@@ -1,0 +1,59 @@
+source "gpg -dq $HOME/.mutt-secret.gpg |"
+
+
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+set folder = "imaps://outlook.office365.com:993/"
+set imap_user = "g.lumia@outlook.com"
+set imap_pass = $my_pass 
+set from = $imap_user
+set use_from = yes
+set realname = "Giuseppe Lumia"
+set smtp_url = "smtp://$imap_user@smtp.office365.com:587/"
+set smtp_pass = $my_pass
+set spoolfile = "+INBOX"
+set postponed="+[hotmail]/Drafts"
+set record="+Sent"
+
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set move = no
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+
+# Some key bindings
+bind index,pager  g group-chat-reply # Preserve 'To' recipients
+
+
+# Patch syntax highlighting (taken from Drew DeVault's config)
+#color   normal  white           default                                         
+color   body    brightwhite     default         ^[[:space:]].*                  
+color   body    yellow          default         ^(diff).*                       
+#color   body    white           default         ^[\-\-\-].*                     
+#color   body    white           default         ^[\+\+\+].*                     
+#color   body    green           default         ^[\+].*                         
+#color   body    red             default         ^[\-].*                         
+#color   body    brightblue      default         [@@].*                          
+color   body    brightwhite     default         ^(\s).*                         
+color   body    cyan            default         ^(Signed-off-by).*
+color   body    cyan            default         ^(Docker-DCO-1.1-Signed-off-by).*
+color   body    brightwhite     default         ^(Cc)
+color   body    yellow          default         "^diff \-.*"
+color   body    brightwhite     default         "^index [a-f0-9].*"
+color   body    brightblue      default         "^---$"
+color   body    white           default         "^\-\-\- .*"
+color   body    white           default         "^[\+]{3} .*"
+color   body    green           default         "^[\+][^\+]+.*"
+color   body    red             default         "^\-[^\-]+.*"
+color   body    brightblue      default         "^@@ .*"
+color   body    green           default         "LGTM"
+color   body    brightmagenta   default         "-- Commit Summary --"
+color   body    brightmagenta   default         "-- File Changes --"
+color   body    brightmagenta   default         "-- Patch Links --"
+color   body    green           default         "^Merged #.*"
+color   body    red             default         "^Closed #.*"
+color   body    brightblue      default         "^Reply to this email.*"
