@@ -20,7 +20,7 @@ opportunity to receive feedbacks.
 
 #### Hint
 ```
-gius@whitewolf:~$ rm .bashrc ; ln -s dotfiles/.bashrc-debian .bashrc
+gius@whitewolf:~$ rm .bashrc ; ln -s dotfiles/.bashrc .bashrc
 ```
 
 Keep your dotfiles in a version controlled folder like this one and in your home
@@ -29,4 +29,3 @@ config file in your home you'll have the change ready to be committed and pushed
 to your dotfiles repository. Viceversa, if you work on multiple computers and
 updated a config file on a different one than your current machine all you need 
 to  have the latest configuration is a `git pull` in the dotfiles directory.
-
