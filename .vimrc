@@ -9,8 +9,31 @@ set nocompatible
 
 set encoding=utf-8
 
+" Vundle and plugins section -------------------------------------------------
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+call vundle#end()
+
+" Set folders to ignore with ctrlp
+set wildignore+=*/node_modules/*
+
+" Enable ctrlp caching (clear with F5)
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = '~/.cache/ctrlp'
+
+" If available use ripgrep for ctrlp
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+endif
+
 " Enable filetype detection and specific behaviour
 filetype plugin indent on
+" ----------------------------------------------------------------------------
+
 
 " Turn on syntax highlighting.
 syntax on
@@ -101,7 +124,6 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-
 " Folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldenable          " enable folding
@@ -130,7 +152,6 @@ set clipboard=unnamed
 " Command-mode bash-like movement
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-
 
 " Preferences for different file types
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
