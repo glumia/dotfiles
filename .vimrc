@@ -147,7 +147,11 @@ let g:markdown_fenced_languages = [
 let g:vim_markdown_conceal = 2
 
 " Share system's clipboard register
-set clipboard=unnamed
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed
+else
+  set clipboard=unnamedplus
+endif
 
 " Command-mode bash-like movement
 cnoremap <C-a> <Home>
