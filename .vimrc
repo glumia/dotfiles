@@ -163,10 +163,9 @@ augroup filetypedetect
 augroup filetypedetect
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
 
-" Some useful commands (could add key bindings in the future)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Convert all tabs to spaces
-"set et ; retab!
 
-" Convert all spaces to tabs
-"set noet; %retab!
+" Key mappings
+let mapleader = '\'
+nnoremap <leader>\ :noh<cr> " Clear higlighting
+nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
+nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
