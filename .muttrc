@@ -27,7 +27,7 @@ set imap_keepalive = 300
 set mail_check = 120
 
 # Some key bindings
-bind index,pager  g group-chat-reply # Preserve 'To' recipients
+bind index,pager g group-chat-reply # Preserve 'To' recipients
 
 
 # Patch syntax highlighting (taken from Drew DeVault's config)
