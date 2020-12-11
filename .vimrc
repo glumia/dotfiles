@@ -101,6 +101,9 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $C
     set t_Co=256
 endif
 
+" Always display status bar
+set laststatus=2
+
 " Don't litter swp files everywhere
 set backupdir=~/.cache
 set directory=~/.cache
