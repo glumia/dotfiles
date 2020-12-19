@@ -101,6 +101,12 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $C
     set t_Co=256
 endif
 
+" Fix for messed colors on tmux
+" Source - https://unix.stackexchange.com/questions/348771
+if $TERM == "screen-256color"
+    set bg=dark
+endif
+
 " Always display status bar
 set laststatus=2
 
