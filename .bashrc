@@ -7,6 +7,9 @@ case $- in
       *) return;;
 esac
 
+# Set prompt style
+PS1='\u@\h:\w\$ '
+
 ## Aliases
 ### Editor shortcut
 alias vi="vim"
