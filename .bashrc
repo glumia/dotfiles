@@ -99,15 +99,22 @@ alias dcu="docker-compose up"
 alias dcutest="docker-compose up pg mongodb redis elastic"
 
 ### Platform specific aliases/settings
-case $(uname -s) in
+case "$(uname -s)" in
 	"Darwin")
 		alias vim="/usr/local/Cellar/vim/8.2.1950/bin/vim"
 		alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
 		;;
 	"Linux")
 		alias pycharm="/home/gius/pycharm-community-2020.2.2/bin/pycharm.sh 2>/dev/null & "
+		alias pbcopy='xclip -selection clipboard'
+		alias pbpaste='xclip -selection clipboard -o'
+		;;
+	"OpenBSD")
+		alias pbcopy='xclip -selection clipboard'
+		alias pbpaste='xclip -selection clipboard -o'
 		;;
 esac
+
 
 
 ## Bash hooks
