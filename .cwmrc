@@ -1,0 +1,4 @@
+bind-key M-h window-htile
+bind-key M-v window-vtile
+htile 15 # Usually I need this only to follow live, long status outputs 
+vtile 57
