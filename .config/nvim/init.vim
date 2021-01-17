@@ -22,6 +22,11 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Fix for messed colors on tmux
+" Source - https://unix.stackexchange.com/questions/348771
+if $TERM == "screen-256color"
+    set background=light
+endif
 
 " Share system's clipboard register
 set clipboard=unnamedplus
