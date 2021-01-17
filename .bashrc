@@ -98,6 +98,9 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcutest="docker-compose up pg mongodb redis elastic"
 
+### Make grep behave like ripgrep
+alias grep="grep -R"
+
 ### Platform specific aliases/settings
 case "$(uname -s)" in
 	"Darwin")
@@ -112,6 +115,7 @@ case "$(uname -s)" in
 	"OpenBSD")
 		alias pbcopy='xclip -selection clipboard'
 		alias pbpaste='xclip -selection clipboard -o'
+		alias feh='feh --conversion-timeout 1'
 		;;
 esac
 
