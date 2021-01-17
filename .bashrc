@@ -35,7 +35,6 @@ PS1='\u@\h:\w\$ '
 
 ## Aliases
 ### Editor shortcut
-alias vi="vim"
 alias v="vim"
 
 ### Git shortcuts
