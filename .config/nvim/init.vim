@@ -14,6 +14,9 @@ set ruler
 set cc=89
 set nowrap
 
+" Mouse should scroll the editor, not the terminal
+set mouse=a
+
 " Jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
