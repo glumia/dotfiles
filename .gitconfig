@@ -7,7 +7,6 @@
 [gpg]
 	program = gpg
 [core]
-	editor = vim
 	excludesfile = ~/.gitignore
 [sendemail]
 	smtpserver = smtp.office365.com
