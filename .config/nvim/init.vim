@@ -24,7 +24,7 @@ endif
 
 " Fix for messed colors on tmux
 " Source - https://unix.stackexchange.com/questions/348771
-if $TERM == "screen-256color"
+if $TERM == "screen-256color" || $TERM == "xterm-256color"
     set background=light
 endif
 
