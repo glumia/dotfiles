@@ -98,9 +98,6 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcutest="docker-compose up pg mongodb redis elastic"
 
-### Make grep behave like ripgrep
-alias grep="grep -R"
-
 ### Platform specific aliases/settings
 case "$(uname -s)" in
 	"Darwin")
