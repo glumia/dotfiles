@@ -1,6 +1,7 @@
 *.swp
 tags
 .idea
+.DS_Store
 
 # Vim/Neovim history
 *.netrwhist
