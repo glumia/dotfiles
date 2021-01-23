@@ -18,9 +18,10 @@ set nowrap
 set mouse=a
 
 " Jump to the last position when reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
 
 " Fix for messed colors on tmux
 " Source - https://unix.stackexchange.com/questions/348771
