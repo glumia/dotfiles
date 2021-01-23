@@ -5,3 +5,6 @@ tags
 
 # Vim/Neovim history
 *.netrwhist
+
+# Pyenv local env
+.python-version
