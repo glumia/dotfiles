@@ -9,3 +9,5 @@ XTerm*faceSize: 10
 XTerm.vt100.translations: #override \n\
 	Ctrl Shift <Key>c: copy-selection(CLIPBOARD) \n\
 	Ctrl Shift <Key>v: insert-selection(CLIPBOARD)
+*foreground: rgb:00/00/00
+*background: rgb:ff/ff/ff
