@@ -3,7 +3,6 @@ XTerm*loginShell:true
 XTerm.vt100.locale: false
 XTerm.vt100.utf8: true
 XTerm.vt100.metaSendsEscape: true
-XTerm.vt100.selectToClipboard: true
 XTerm*renderFont: true
 XTerm*faceName: DejaVu Sans Mono
 XTerm*faceSize: 10
