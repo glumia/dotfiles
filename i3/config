@@ -170,5 +170,8 @@ bar {
 }
 
 # Thinkpad X250 Function keys
-bindsym XF86MonBrightnessUp exec xbacklight +10
-bindsym XF86MonBrightnessDown exec xbacklight -10
+bindsym XF86MonBrightnessUp exec "xbacklight +10"
+bindsym XF86MonBrightnessDown exec "xbacklight -10"
+bindsym XF86AudioMute exec "amixer -q -D pulse sset Master toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 3%+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 3%- unmute"
