@@ -105,7 +105,7 @@ case "$(uname -s)" in
 		alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
 		;;
 	"Linux")
-		alias pycharm="/home/gius/pycharm-community-2020.2.2/bin/pycharm.sh 2>/dev/null & "
+		alias pycharm="/home/gius/pycharm-community-2020.3.3/bin/pycharm.sh 2>/dev/null & "
 		alias pbcopy='xclip -selection clipboard'
 		alias pbpaste='xclip -selection clipboard -o'
 		;;
