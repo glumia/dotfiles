@@ -90,6 +90,7 @@ alias gup="git pull --rebase"
 alias gt="git tag -a"
 
 ### Some ls shortcuts
+alias ls="ls -lhF" # Better defaults
 alias la="ls -a"
 alias ll="ls -la"
 
