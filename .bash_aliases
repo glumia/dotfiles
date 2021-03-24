@@ -1,41 +1,5 @@
-# glumia
-# -----------------------------------------------------------------------------
-
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-# Shell specific settings
-case $SHELL in
-	'/bin/ksh')
-		. /etc/ksh.kshrc # Source sane ksh defaults
-		;;
-	'bin/bash')
-		# Settings taken from Debian's default .bashrc
-		HISTCONTROL=ignoreboth
-		shopt -s histappend
-		HISTSIZE=1000
-		HISTFILESIZE=2000
-		shopt -s checkwinsize
-		[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-		if ! shopt -oq posix; then
-		  if [ -f /usr/share/bash-completion/bash_completion ]; then
-		    . /usr/share/bash-completion/bash_completion
-		  elif [ -f /etc/bash_completion ]; then
-		    . /etc/bash_completion
-		  fi
-		fi
-		;;
-esac
-
-# Set prompt style
-PS1='\u@\h:\w\$ '
-
-## Aliases
 ### Editor shortcut
-alias v="nvim"
+alias v="vim"
 
 ### Git shortcuts
 alias g="git"
@@ -90,7 +54,7 @@ alias gup="git pull --rebase"
 alias gt="git tag -a"
 
 ### Some ls shortcuts
-alias ls="ls -lhF" # Better defaults
+alias l="ls -lhF" # ls with better defaults
 alias la="ls -a"
 alias ll="ls -la"
 
@@ -99,7 +63,7 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcutest="docker-compose up pg mongodb redis elastic"
 
-### Platform specific aliases/settings
+### Platform specific aliases
 case "$(uname -s)" in
 	"Darwin")
 		alias vim="/usr/local/Cellar/vim/8.2.1950/bin/vim"
@@ -116,13 +80,3 @@ case "$(uname -s)" in
 		alias feh='feh --conversion-timeout 1'
 		;;
 esac
-
-
-
-## Bash hooks
-### Activate Bash-Tiasft (aliases suggestions) and then Bash-Preexec
-#if [[ "$SHELL" == "/bin/bash" && -f ~/bash-preexec/bash-preexec.sh && \
-#	-f ~/bash-preexec/bash-preexec.sh ]]; then
-#	source ~/bash-tiasft/bash-tiasft.sh
-#	source ~/bash-preexec/bash-preexec.sh
-#fi
