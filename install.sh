@@ -9,7 +9,7 @@ for file in bin/*; do
 done
 
 
-printf "\nLinking dotfiles to home\n"
+printf "\nLinking home dotfiles\n"
 DOTFILES="
 	.bash_aliases
 	.gitconfig
@@ -21,4 +21,13 @@ DOTFILES="
 for file in $DOTFILES; do
 	printf "\tlinking ~/$file to ./$file\n"
 	ln -sf "$PWD/$file" "$HOME/$file"
+done
+
+printf "\nLinking configs\n"
+CONFIGS="
+	nvim
+"
+for config in $CONFIGS; do
+	printf "\tlinking ~/.config/$config to ./.config/$config\n"
+	ln -sf "$PWD/.config/$config" "$HOME/.config/$config"
 done
