@@ -15,6 +15,8 @@ List of favourite GUI software/packages:
 - Wireshark
 - KeepassXC
 - GParted
+- pyenv (this could be scripted)
+- PyCharm (also this could be scripted)
 
 TODO: Add list of favourite tools (eg. pyenv, etc)
 
