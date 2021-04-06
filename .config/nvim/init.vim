@@ -53,7 +53,8 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.mail setfiletype mail
 augroup filetypedetect
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
-
+augroup filetypedetect
+  autocmd BufRead,BufNewFile *.mmark setfiletype markdown
 
 " Key mappings
 let mapleader = '\'
