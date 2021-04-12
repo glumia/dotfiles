@@ -53,6 +53,9 @@ alias gpl="git pull"
 alias gup="git pull --rebase"
 alias gt="git tag -a"
 
+### Change directory to root path of git repository
+alias c="cd $(git rev-parse --show-toplevel)"
+
 ### Some ls shortcuts
 alias l="ls -lhF" # ls with better defaults
 alias la="ls -a"
