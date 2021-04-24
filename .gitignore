@@ -6,5 +6,8 @@ tags
 # Vim/Neovim history
 *.netrwhist
 
+# Neovim plugins
+.config/nvim/plugged
+
 # Pyenv local env
 .python-version

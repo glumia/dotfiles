@@ -56,8 +56,21 @@ augroup filetypedetect
 augroup filetypedetect
   autocmd BufRead,BufNewFile *.mmark setfiletype markdown
 
+
+" Plugins (vim-plug)
+call plug#begin()
+
+  Plug 'preservim/nerdtree'
+
+call plug#end()
+
+" Plugins config
+let NERDTreeShowHidden=1
+
+
 " Key mappings
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
 nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
+nnoremap <leader>t :NERDTreeToggle<cr>
