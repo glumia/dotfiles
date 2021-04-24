@@ -57,6 +57,7 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.mmark setfiletype markdown
 
 " Key mappings
-let mapleader = '\'
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
 nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
