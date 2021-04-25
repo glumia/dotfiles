@@ -8,7 +8,7 @@
 	program = gpg
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim
+	editor = nvim
 [sendemail]
 	smtpserver = smtp.office365.com
 	smtpuser = g.lumia@outlook.com
