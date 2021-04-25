@@ -26,6 +26,7 @@ done
 printf "\nLinking configs\n"
 CONFIGS="
 	nvim
+	kitty
 "
 for config in $CONFIGS; do
 	printf "\tlinking ~/.config/$config to ./.config/$config\n"
