@@ -29,5 +29,6 @@ CONFIGS="
 "
 for config in $CONFIGS; do
 	printf "\tlinking ~/.config/$config to ./.config/$config\n"
-	ln -sf "$PWD/.config/$config" "$HOME/.config/$config"
+	rm -rf "$HOME/.config/$config" # The ln -n option is not available on BSD systems
+	ln -s "$PWD/.config/$config" "$HOME/.config/$config"
 done
