@@ -32,6 +32,9 @@ endif
 " Share system's clipboard register
 set clipboard=unnamedplus
 
+" Search down into subfolders
+set path+=**
+
 " Preferences for different file types
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType c setlocal noet ts=8 sw=8 tw=80 cc=80
