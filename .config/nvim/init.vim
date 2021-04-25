@@ -1,3 +1,5 @@
+" vim: fdm=marker
+
 " Show line numbers.
 set number
 
@@ -20,7 +22,7 @@ set mouse=a
 " Jump to the last position when reopening a file
 autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-  \ |   exe "normal! g`\""
+  \ |	exe "normal! g`\""
   \ | endif
 
 " Fix for messed colors on tmux
@@ -35,8 +37,7 @@ set clipboard=unnamedplus
 " Search down into subfolders
 set path+=**
 
-" Preferences for different file types
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Preferences for different file types {{{
 autocmd FileType c setlocal noet ts=8 sw=8 tw=80 cc=80
 autocmd FileType h setlocal noet ts=8 sw=8 tw=80 cc=80
 autocmd FileType cpp setlocal noet ts=8 sw=8 tw=80
@@ -58,17 +59,43 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
 augroup filetypedetect
   autocmd BufRead,BufNewFile *.mmark setfiletype markdown
+" }}}
 
 
-" Plugins (vim-plug)
+" Plugins (vim-plug) {{{
 call plug#begin()
 
+  " NERDTree
   Plug 'preservim/nerdtree'
+
+  Plug 'editorconfig/editorconfig-vim'
+
+  " vim-surround: s is a text-object for delimiters
+  Plug 'tpope/vim-surround'
+
+  " vim-commentary: gc is an operator to toggle comments; gcc linewise
+  Plug 'tpope/vim-commentary'
+
+  " Extend '.' repeat capabilities
+  Plug 'tpope/vim-repeat'
+
+  " vim-fugitive - Check project's README for features
+  Plug 'tpope/vim-fugitive'
+
+  " UNIX shell commands in vim - Check project's README for features
+  Plug 'tpope/vim-eunuch'
+
+  " Sensitive vim defaults - Not needed since I'm on neovim, but I put it
+  " here anyway just in case I'm forced to use vim.
+  "Plug 'tpope/vim-sensible'
 
 call plug#end()
 
+
 " Plugins config
 let NERDTreeShowHidden=1
+
+" }}}
 
 
 " Key mappings

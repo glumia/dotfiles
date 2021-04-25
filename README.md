@@ -16,6 +16,9 @@ opportunity to receive feedbacks.
 - [Arch Wiki](https://wiki.archlinux.org/)
 - [Global .gitignore](https://gist.github.com/subfuzion/db7f57fff2fb6998a16c)
 - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) (for aliases)
+- [Maxin Cardamom's dotfiles](https://github.com/changemewtf/dotfiles) (take a
+  look at his [talk](https://www.youtube.com/watch?v=XA2WjJbmmoM) about vim's
+  built-in capabilities)
 
 
 #### Hint
