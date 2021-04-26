@@ -68,6 +68,7 @@ call plug#begin()
   " NERDTree
   Plug 'preservim/nerdtree'
 
+  " Editorconfig plugin
   Plug 'editorconfig/editorconfig-vim'
 
   " vim-surround: s is a text-object for delimiters
@@ -94,6 +95,9 @@ call plug#begin()
 
   " Fuzzy finder
   Plug 'junegunn/fzf'
+
+  " Go Plugin
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
