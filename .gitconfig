@@ -19,3 +19,5 @@
 	rebase = true
 [include]
   path = ~/.gitconfig-secret
+[http]
+	cookiefile = /home/gius/.gitcookies
