@@ -89,6 +89,9 @@ call plug#begin()
   " here anyway just in case I'm forced to use vim.
   "Plug 'tpope/vim-sensible'
 
+  " ALE Lint Engine
+  Plug 'dense-analysis/ale'
+
 call plug#end()
 
 
