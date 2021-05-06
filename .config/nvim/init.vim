@@ -14,7 +14,6 @@ set smartcase
 " spend most of my time working in Python and use Black on my projects.
 set ruler
 set cc=89
-set nowrap
 
 " Mouse should scroll the editor, not the terminal
 set mouse=a
