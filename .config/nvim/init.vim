@@ -98,11 +98,25 @@ call plug#begin()
   " Go Plugin
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+  " Theme
+  Plug 'gruvbox-community/gruvbox'
+
+  " Tmuxline (generate tmux theme according to vim's colorscheme)
+  " Plug 'edkolev/tmuxline.vim'
+
 call plug#end()
 
 
 " Plugins config
 let NERDTreeShowHidden=1
+
+" Gruvbox theme
+set termguicolors
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
+colorscheme gruvbox
+
+
 
 " }}}
 
