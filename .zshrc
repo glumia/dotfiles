@@ -3,7 +3,10 @@ autoload -Uz compinit
 compinit
 
 # Source aliases
-source /Users/gius/.bash_aliases
+source "$HOME/.bash_aliases"
+
+# Add custom binaries to path
+export PATH="$HOME/.local/bin:$PATH"
 
 # Fix for 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
