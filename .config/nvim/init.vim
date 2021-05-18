@@ -24,12 +24,6 @@ autocmd BufReadPost *
   \ |	exe "normal! g`\""
   \ | endif
 
-" Fix for messed colors on tmux
-" Source - https://unix.stackexchange.com/questions/348771
-if $TERM == "screen-256color" || $TERM == "xterm-256color"
-    set background=light
-endif
-
 " Share system's clipboard register
 set clipboard=unnamedplus
 
@@ -115,6 +109,7 @@ set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
+set background=light
 
 
 
