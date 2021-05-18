@@ -69,8 +69,6 @@ alias dcutest="docker-compose up pg mongodb redis elastic"
 ### Platform specific aliases
 case "$(uname -s)" in
 	"Darwin")
-		alias vim="/usr/local/Cellar/vim/8.2.1950/bin/vim"
-		alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
 		;;
 	"Linux")
 		alias pbcopy='xclip -selection clipboard'
