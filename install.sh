@@ -16,7 +16,6 @@ DOTFILES="
 	.gitignore
 	.muttrc
 	.tmux.conf
-	.vimrc
 "
 for file in $DOTFILES; do
 	printf "\tlinking ~/$file to ./$file\n"
