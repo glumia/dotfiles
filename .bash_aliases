@@ -1,5 +1,5 @@
 ### Editor shortcut
-alias v="vim"
+alias v="nvim"
 
 ### Git shortcuts
 alias g="git"
