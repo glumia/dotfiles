@@ -18,6 +18,8 @@
 [pull]
 	rebase = true
 [include]
-  path = ~/.gitconfig-secret
+	path = ~/.gitconfig-secret
 [http]
 	cookiefile = /home/gius/.gitcookies
+[url "git@github.com:bcmi-labs"]
+	insteadOf = https://github.com/bcmi-labs
