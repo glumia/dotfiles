@@ -69,6 +69,9 @@ alias dcutest="docker-compose up pg mongodb redis elastic"
 ### Git config for work repositories
 alias git-config-arduino='git config user.signingkey 2B581A92B13543C26099E11893DE8D68B831B86F && git config user.email g.lumia@arduino.cc'
 
+### Use local version of serverless framework
+alias sls="./node_modules/.bin/sls"
+
 ### Platform specific aliases
 case "$(uname -s)" in
 	"Darwin")
