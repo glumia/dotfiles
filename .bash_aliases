@@ -67,7 +67,7 @@ alias dcu="docker-compose up"
 alias dcutest="docker-compose up pg mongodb redis elastic"
 
 ### Git config for work repositories
-alias git-config-arduino='git config user.signingkey 2B581A92B13543C26099E11893DE8D68B831B86F && git config user.email g.lumia@arduino.cc'
+alias git-config-arduino="git config user.signingkey 2B581A92B13543C26099E11893DE8D68B831B86F && git config user.email g.lumia@arduino.cc"
 
 ### Use local version of serverless framework
 alias sls="./node_modules/.bin/sls"
@@ -77,12 +77,12 @@ case "$(uname -s)" in
 	"Darwin")
 		;;
 	"Linux")
-		alias pbcopy='xclip -selection clipboard'
-		alias pbpaste='xclip -selection clipboard -o'
+		alias pbcopy="xclip -selection clipboard"
+		alias pbpaste="xclip -selection clipboard -o"
 		;;
 	"OpenBSD")
-		alias pbcopy='xclip -selection clipboard'
-		alias pbpaste='xclip -selection clipboard -o'
-		alias feh='feh --conversion-timeout 1'
+		alias pbcopy="xclip -selection clipboard"
+		alias pbpaste="xclip -selection clipboard -o"
+		alias feh="feh --conversion-timeout 1"
 		;;
 esac
