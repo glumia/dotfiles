@@ -76,9 +76,6 @@ call plug#begin()
   " vim-fugitive - Check project's README for features
   Plug 'tpope/vim-fugitive'
 
-  " UNIX shell commands in vim - Check project's README for features
-  Plug 'tpope/vim-eunuch'
-
   " Sensitive vim defaults - Not needed since I'm on neovim, but I put it
   " here anyway just in case I'm forced to use vim.
   "Plug 'tpope/vim-sensible'
