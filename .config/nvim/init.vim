@@ -101,6 +101,26 @@ call plug#end()
 " Plugins config
 let NERDTreeShowHidden=1
 
+" ALE Config
+let g:ale_linters= {
+\   'python': ['flake8', 'pylint', 'pyright'],
+\}
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_filetype_changed = 1
+
+let g:ale_fixers = {
+\   'python': [
+\       'isort',
+\       'black',
+\   ],
+\}
+let g:ale_python_isort_options = '--profile black'
+let g:ale_python_flake8_options = '--ignore=E501,E266,W503'
+
+
 " Gruvbox theme
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
@@ -120,3 +140,6 @@ nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
 nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>p :FZF<cr>
+nnoremap <leader>l :nohlsearch<cr>
+nnoremap <leader>R :source $MYVIMRC<CR>
+nmap <leader>k <Plug>(ale_fix)
