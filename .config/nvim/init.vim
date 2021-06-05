@@ -116,6 +116,12 @@ let g:ale_fixers = {
 \       'isort',
 \       'black',
 \   ],
+\   'yaml': [
+\       'prettier',
+\   ],
+\   'json': [
+\       'prettier',
+\   ],
 \}
 let g:ale_python_isort_options = '--profile black'
 let g:ale_python_flake8_options = '--ignore=E501,E266,W503'
