@@ -149,3 +149,4 @@ nnoremap <leader>p :FZF<cr>
 nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>R :source $MYVIMRC<CR>
 nmap <leader>k <Plug>(ale_fix)
+nnoremap <leader>j :r!date<CR>o
