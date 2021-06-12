@@ -125,6 +125,8 @@ let g:ale_fixers = {
 \}
 let g:ale_python_isort_options = '--profile black'
 let g:ale_python_flake8_options = '--ignore=E501,E266,W503'
+let g:ale_python_pylint_options = '--disable=W0621'
+
 
 
 " Gruvbox theme
