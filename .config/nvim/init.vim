@@ -103,7 +103,7 @@ let NERDTreeShowHidden=1
 
 " ALE Config
 let g:ale_linters= {
-\   'python': ['flake8', 'pylint', 'pyright'],
+\   'python': ['flake8', 'pylint', 'pyls'],
 \}
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 0
