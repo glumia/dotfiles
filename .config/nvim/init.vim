@@ -80,7 +80,7 @@ call plug#begin()
   " here anyway just in case I'm forced to use vim.
   "Plug 'tpope/vim-sensible'
 
-  " ALE Lint Engine
+  " ALE (autocompletion, linting, lsp client, and many other things)
   Plug 'dense-analysis/ale'
 
   " Fuzzy finder
@@ -102,29 +102,21 @@ call plug#end()
 let NERDTreeShowHidden=1
 
 " ALE Config
-let g:ale_linters= {
-\   'python': ['flake8', 'pylint', 'pyls'],
-\}
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_filetype_changed = 1
-
 let g:ale_fixers = {
-\   'python': [
-\       'isort',
-\       'black',
-\   ],
-\   'yaml': [
-\       'prettier',
-\   ],
-\   'json': [
-\       'prettier',
-\   ],
+\	'python': ['isort', 'black'],
+\	'yaml': ['prettier'],
+\	'json': ['prettier'],
 \}
-let g:ale_python_isort_options = '--profile black'
+let g:ale_linters= {
+\	'python': ['flake8', 'pylint', 'pyls'],
+\}
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
 let g:ale_python_flake8_options = '--ignore=E501,E266,W503'
+let g:ale_python_isort_options = '--profile black'
 let g:ale_python_pylint_options = '--disable=W0621'
 let g:ale_python_pyls_config = {
 \	'pyls': {
@@ -134,15 +126,12 @@ let g:ale_python_pyls_config = {
 \	},
 \}
 
-
 " Gruvbox theme
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
 set background=light
-
-
 
 " }}}
 
