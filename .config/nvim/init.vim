@@ -109,6 +109,7 @@ let g:ale_fixers = {
 \}
 let g:ale_linters= {
 \	'python': ['flake8', 'pylint', 'pyls'],
+\	'sh': ['shellcheck'],
 \}
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 1
