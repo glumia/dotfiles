@@ -118,7 +118,12 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_python_flake8_options = '--ignore=E501,E266,W503'
 let g:ale_python_isort_options = '--profile black'
-let g:ale_python_pylint_options = '--disable=W0621'
+let g:ale_python_pylint_options = '--disable=
+					\ redefined-outer-name,
+					\ invalid-name,
+					\ missing-module-docstring,
+					\ missing-function-docstring,
+					\'
 let g:ale_python_pyls_config = {
 \	'pyls': {
 \		'plugins': {
