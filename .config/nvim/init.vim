@@ -127,7 +127,8 @@ let g:ale_python_pylint_options = '--disable=
 let g:ale_python_pyls_config = {
 \	'pyls': {
 \		'plugins': {
-\			'pycodestyle': {'enabled': v:false}
+\			'pycodestyle': {'enabled': v:false},
+\			'pyflakes': {'enabled': v:false},
 \		}
 \	},
 \}
