@@ -116,7 +116,7 @@ let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-let g:ale_python_flake8_options = '--ignore=E501,E266,W503'
+let g:ale_python_flake8_options = '--extend-ignore=E501,E266,W503'
 let g:ale_python_isort_options = '--profile black'
 let g:ale_python_pylint_options = '--disable=
 					\ redefined-outer-name,
