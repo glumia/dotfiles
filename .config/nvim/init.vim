@@ -154,3 +154,5 @@ nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>R :source $MYVIMRC<CR>
 nmap <leader>k <Plug>(ale_fix)
 nnoremap <leader>j :r!date<CR>o
+nnoremap <c-n> :cnext<cr>
+nnoremap <c-p> :cprevious<cr>
