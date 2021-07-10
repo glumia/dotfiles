@@ -106,6 +106,8 @@ let g:ale_fixers = {
 \	'python': ['isort', 'black'],
 \	'yaml': ['prettier'],
 \	'json': ['prettier'],
+\	'arduino': ['clang-format'],
+\	'cpp': ['clang-format'],
 \}
 let g:ale_linters= {
 \	'python': ['flake8', 'pylint', 'pyls'],
