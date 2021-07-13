@@ -83,11 +83,11 @@ call plug#begin()
   " ALE (autocompletion, linting, lsp client, and many other things)
   Plug 'dense-analysis/ale'
 
+  " Neovim LSP config
+  Plug 'neovim/nvim-lspconfig'
+
   " Fuzzy finder
   Plug 'junegunn/fzf'
-
-  " Go Plugin
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Theme
   Plug 'gruvbox-community/gruvbox'
@@ -102,38 +102,58 @@ call plug#end()
 let NERDTreeShowHidden=1
 
 " ALE Config
+let g:ale_linters_explicit = 1
+let g:ale_disable_lsp = 1
 let g:ale_fixers = {
 \	'python': ['isort', 'black'],
 \	'yaml': ['prettier'],
 \	'json': ['prettier'],
 \	'arduino': ['clang-format'],
 \	'cpp': ['clang-format'],
+\	'go': ['gofmt', 'goimports'],
 \}
 let g:ale_linters= {
-\	'python': ['flake8', 'pylint', 'pyls'],
 \	'sh': ['shellcheck'],
 \}
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-let g:ale_python_flake8_options = '--extend-ignore=E501,E266,W503'
-let g:ale_python_isort_options = '--profile black'
-let g:ale_python_pylint_options = '--disable=
-					\ redefined-outer-name,
-					\ invalid-name,
-					\ missing-module-docstring,
-					\ missing-function-docstring,
-					\'
-let g:ale_python_pyls_config = {
-\	'pyls': {
-\		'plugins': {
-\			'pycodestyle': {'enabled': v:false},
-\			'pyflakes': {'enabled': v:false},
-\		}
-\	},
-\}
+
+" Neovim LSP Config
+lua << EOF
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local opts = { noremap=true, silent=true }
+
+  -- LSP Key mappings
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)	-- <leader>ca: Code Action
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)		-- gD: Go Declaration
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)		-- gd: Go Definition
+  buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)	-- <leader>f:  Format (buffer)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)			-- K:  Help
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)		-- gi: Go Implementation
+  buf_set_keymap('n', 'gu', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)		-- gu: Go Users (users of this obj)
+  buf_set_keymap('n', 'gU', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)		-- gU: Go Used  (used by this obj)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)		-- gr: Go References
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)		-- <leader>rn: ReName
+  buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)		-- gt: Go Type
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)	-- C-k:  Help
+
+  buf_set_keymap('n', 'LL', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts) 	-- LL: Location List
+  buf_set_keymap('n', 'Ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)	-- Ln: Location Next
+  buf_set_keymap('n', 'Lp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)	-- Lp: Location Previous
+end
+
+
+require'lspconfig'.gopls.setup{on_attach=on_attach}
+require'lspconfig'.clangd.setup{on_attach=on_attach}
+require'lspconfig'.pylsp.setup{on_attach=on_attach}
+require'lspconfig'.tsserver.setup{on_attach=on_attach}
+require'lspconfig'.yamlls.setup{on_attach=on_attach}
+EOF
 
 " Gruvbox theme
 set termguicolors
