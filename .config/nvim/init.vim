@@ -35,7 +35,7 @@ autocmd FileType c setlocal noet ts=8 sw=8 tw=80 cc=80
 autocmd FileType h setlocal noet ts=8 sw=8 tw=80 cc=80
 autocmd FileType cpp setlocal noet ts=8 sw=8 tw=80
 autocmd FileType s setlocal noet ts=8 sw=8
-autocmd FileType go setlocal noet ts=4 sw=4
+autocmd FileType go setlocal noet ts=4 sw=4 makeprg=go\ build
 autocmd FileType sh setlocal noet ts=4 sw=4
 autocmd BufRead,BufNewFile *.js setlocal et ts=2 sw=2
 autocmd FileType html setlocal et ts=2 sw=2
