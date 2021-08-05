@@ -166,7 +166,6 @@ set background=light
 
 " }}}
 
-
 " Key mappings
 nnoremap <SPACE> <Nop>
 let mapleader = " "
@@ -180,3 +179,4 @@ nmap <leader>k <Plug>(ale_fix)
 nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
+nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr> " Check spelling errors
