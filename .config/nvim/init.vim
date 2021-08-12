@@ -110,7 +110,7 @@ let g:ale_fixers = {
 \	'json': ['prettier'],
 \	'arduino': ['clang-format'],
 \	'cpp': ['clang-format'],
-\	'go': ['gofmt', 'goimports'],
+\	'go': ['goimports'],
 \}
 let g:ale_linters= {
 \	'sh': ['shellcheck'],
