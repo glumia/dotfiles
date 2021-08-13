@@ -86,3 +86,13 @@ case "$(uname -s)" in
 		alias feh="feh --conversion-timeout 1"
 		;;
 esac
+
+### Utilities
+
+# gocover runs tests of go module(s) passed as argument and opens their coverage report
+# on browser.
+gocover(){ 
+	local t
+	t=$(mktemp -t cover.XXXXXX)
+	go test -coverprofile="$t" "$@" && go tool cover -html "$t" && rm "$t"
+}
