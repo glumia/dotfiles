@@ -46,6 +46,7 @@ autocmd FileType typescript setlocal et ts=2 sw=2
 autocmd FileType python setlocal et ts=4 sw=4
 autocmd FileType tex hi Error ctermbg=NONE
 autocmd FileType mail setlocal noautoindent cc=73
+autocmd FileType gitcommit setlocal cc=73
 augroup filetypedetect
   autocmd BufRead,BufNewFile *.mail setfiletype mail
 augroup filetypedetect
