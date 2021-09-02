@@ -27,6 +27,7 @@ CONFIGS="
 	nvim
 	kitty
 	alacritty
+	pycodestyle
 "
 for config in $CONFIGS; do
 	printf "\tlinking ~/.config/$config to ./.config/$config\n"
