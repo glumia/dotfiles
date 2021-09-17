@@ -170,8 +170,8 @@ set background=light
 " Key mappings
 nnoremap <SPACE> <Nop>
 let mapleader = " "
-nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
-nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
+" nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
+" nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>p :FZF<cr>
 nnoremap <leader>l :nohlsearch<cr>
