@@ -181,3 +181,4 @@ nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
 nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr> " Check spelling errors
+nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
