@@ -1,0 +1,14 @@
+#!/bin/sh
+# Explain why a Go module is needed by walking the chain of dependencies.
+root_module=$(grep -m1 module go.mod | cut -d' ' -f2)
+m=$(go mod graph | grep "$1" | head -n1 | cut -d' ' -f2)
+
+if [ -z "$m" ];then
+	exit 1
+fi
+
+while [ "$m" != "$root_module" ]; do
+	printf "%s\n" "$m"
+	m=$(go mod graph | grep "$m" | head -n1 | cut -d' ' -f1)
+done
+printf "%s\n" "$m"
