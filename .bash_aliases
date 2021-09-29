@@ -87,6 +87,10 @@ case "$(uname -s)" in
 		;;
 esac
 
+### Enable/disable microphone loopback
+alias miclb="pactl load-module module-loopback latency_msec=1"
+alias unmiclb="pactl unload-module module-loopback"
+
 ### Utilities
 
 # gocover runs tests of go module(s) passed as argument and opens their coverage report
