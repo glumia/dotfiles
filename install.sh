@@ -34,3 +34,7 @@ for config in $CONFIGS; do
 	rm -rf "$HOME/.config/$config" # The ln -n option is not available on BSD systems
 	ln -s "$PWD/.config/$config" "$HOME/.config/$config"
 done
+
+printf "\nInstalling neovim plugin manager"
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
+	--create-dirs 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
