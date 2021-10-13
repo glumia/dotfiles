@@ -25,6 +25,12 @@ for file in $DOTFILES; do
 	ln -sf "$PWD/$file" "$HOME/$file"
 done
 
+# Check that .profile will not be ignored
+if [ -f ~/.bash_profile ] || [ -f ~/.bash_login ]; then
+	printf "\n\nWARNING: the linked ~/.profile will not be read by bash since a
+	~/.bash_profile or a ~/.bash_login exists.\n\n"
+fi
+
 printf "\nLinking configs\n"
 CONFIGS="
 	nvim

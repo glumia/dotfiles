@@ -1,6 +1,7 @@
 base
 linux
 linux-firmware
+base-devel
 alsa-utils
 bash-completion
 bind-tools
@@ -8,6 +9,7 @@ bluez
 bluez-utils
 btrfs-progs
 calibre
+clang
 crda
 cryptsetup
 cups
@@ -109,6 +111,7 @@ nmap
 ntfs-3g
 nvme-cli
 openssh
+openssl
 os-prober
 parted
 partimage
@@ -151,4 +154,6 @@ wireshark-qt
 wpa_supplicant
 xclip
 xdg-user-dirs-gtk
+xz
 yelp
+zlib

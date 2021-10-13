@@ -69,8 +69,13 @@ systemctl enable reflector.timer
 printf "\n\n"
 
 # Configure userspace
+rm -f "/home/$uname/.bash_profile"
 # shellcheck disable=SC2016,SC1004
-sudo -Hu "$uname" su -c 'git clone https://github.com/glumia/dotfiles.git \
-	$HOME/dotfiles \
-	&& cd $HOME/dotfiles  \
-	&& sh install.sh'
+su -c 'git clone https://github.com/glumia/dotfiles.git \
+			~/dotfiles \
+	&& cd ~/dotfiles  \
+	&& sh install.sh \
+	&& git clone https://github.com/pyenv/pyenv.git ~/.pyenv \
+	&& cd ~/.pyenv && src/configure && make -C src \
+	&& git clone https://github.com/pyenv/pyenv-virtualenv.git \
+		~/.pyenv/plugins/pyenv-virtualenv' "$uname"
