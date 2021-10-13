@@ -1,6 +1,9 @@
 ### Editor shortcut
 alias v="nvim"
 
+### Enable aliases with sudo
+alias sudo="sudo "
+
 ### Git shortcuts
 alias g="git"
 alias ga="git add"
