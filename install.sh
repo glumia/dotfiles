@@ -32,6 +32,7 @@ CONFIGS="
 	alacritty
 	pycodestyle
 "
+mkdir -p ~/.config
 for config in $CONFIGS; do
 	printf "\tlinking ~/.config/%s to ./.config/%s\n" "$config" "$config"
 	rm -rf "$HOME/.config/$config" # The ln -n option is not available on BSD systems
