@@ -16,6 +16,7 @@ cups
 dhclient
 diffutils
 dnsmasq
+dstat
 dosfstools
 e2fsprogs
 efibootmgr
@@ -131,6 +132,7 @@ sof-firmware
 squashfs-tools
 sudo
 sushi
+strace
 syslinux
 systemd-resolvconf
 tcpdump
