@@ -120,6 +120,7 @@ parted
 partimage
 pkgfile
 ppp
+progress
 pv
 qt5-base
 reflector
