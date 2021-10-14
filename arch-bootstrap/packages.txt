@@ -23,6 +23,7 @@ ethtool
 evince
 exfatprogs
 fatresize
+fdupes
 ffmpeg
 file-roller
 firefox
