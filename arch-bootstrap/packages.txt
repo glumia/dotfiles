@@ -120,6 +120,7 @@ partimage
 pkgfile
 ppp
 pv
+qt5-base
 reflector
 ripgrep
 rsync
