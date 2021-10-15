@@ -15,6 +15,7 @@ numlock-state=true
 repeat-interval=uint32 21
 
 [org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
 two-finger-scrolling-enabled=true
 
 [org/gnome/desktop/privacy]
