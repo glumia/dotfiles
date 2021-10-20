@@ -167,11 +167,9 @@ set background=light
 
 " }}}
 
-" Key mappings
+" Key mappings {{{
 nnoremap <SPACE> <Nop>
 let mapleader = " "
-" nnoremap <leader>rt :set noet <bar> :%retab!<cr> " Convert spaces to tabs
-" nnoremap <leader>nrt :set et <bar> :retab!<cr> " Convert tabs to spaces
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>p :FZF<cr>
 nnoremap <leader>l :nohlsearch<cr>
@@ -180,6 +178,15 @@ nmap <leader>k <Plug>(ale_fix)
 nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
-nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr> " Check spelling errors
 nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
+
+" Convert spaces to tabs and viceversa
+" nnoremap <leader>rt :set noet <bar> :%retab!<cr>
+" nnoremap <leader>nrt :set et <bar> :retab!<cr>
+
+" Check spelling errors
+nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>
+
+" Yank path
 nnoremap <leader>yp :let @+=expand("%")<CR>
+" }}
