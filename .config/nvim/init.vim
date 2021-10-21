@@ -106,7 +106,7 @@ let NERDTreeShowHidden=1
 let g:ale_linters_explicit = 1
 let g:ale_disable_lsp = 1
 let g:ale_fixers = {
-\	'python': ['isort', 'black', 'autoimport'],
+\	'python': ['autoimport', 'isort', 'black'],
 \	'yaml': ['prettier'],
 \	'json': ['prettier'],
 \	'arduino': ['clang-format'],
