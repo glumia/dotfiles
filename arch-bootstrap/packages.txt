@@ -29,6 +29,7 @@ ffmpeg
 file-roller
 firefox
 fsarchiver
+fzf
 gdm
 gimp
 eog

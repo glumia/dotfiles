@@ -66,6 +66,10 @@ alias l='ls -CF'
 [ -s /usr/share/bash-completion/bash_completion ] && \
     . /usr/share/bash-completion/bash_completion
 
+# Load FZF keybindings and completion
+[ -s /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
+[ -s /usr/share/fzf/completion.bash ] && . /usr/share/fzf/completion.bash
+
 # shellcheck disable=SC1090
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # shellcheck disable=SC1090
