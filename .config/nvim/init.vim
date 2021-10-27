@@ -193,3 +193,8 @@ nnoremap <leader>yp :let @+=expand("%")<CR>
 
 " Back to normal mode from embedded terminal
 tnoremap <C-\> <C-\><C-n>
+
+" Tab mappings
+nnoremap <c-s>n :tabe<cr>
+nnoremap <c-s>h :tabp<cr>
+nnoremap <c-s>l :tabn<cr>
