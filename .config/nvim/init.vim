@@ -31,9 +31,9 @@ set clipboard=unnamedplus
 set path+=**
 
 " Preferences for different file types {{{
-autocmd FileType c setlocal noet ts=8 sw=8 tw=80 cc=80
-autocmd FileType h setlocal noet ts=8 sw=8 tw=80 cc=80
-autocmd FileType cpp setlocal noet ts=8 sw=8 tw=80
+autocmd FileType c setlocal et ts=2 sw=2 tw=80 cc=80
+autocmd FileType h setlocal et ts=2 sw=2 tw=80 cc=80
+autocmd FileType cpp setlocal et ts=2 sw=2 tw=80
 autocmd FileType s setlocal noet ts=8 sw=8
 autocmd FileType go setlocal noet ts=4 sw=4 makeprg=go\ build
 autocmd FileType sh setlocal noet ts=4 sw=4
@@ -111,6 +111,7 @@ let g:ale_fixers = {
 \	'json': ['prettier'],
 \	'arduino': ['clang-format'],
 \	'cpp': ['clang-format'],
+\	'c': ['clang-format'],
 \	'go': ['goimports'],
 \}
 let g:ale_linters= {
