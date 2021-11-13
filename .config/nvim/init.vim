@@ -55,7 +55,6 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.mmark setfiletype markdown
 " }}}
 
-
 " Plugins (vim-plug) {{{
 call plug#begin()
 
