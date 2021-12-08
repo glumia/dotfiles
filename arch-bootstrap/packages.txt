@@ -1,8 +1,6 @@
-base
-linux
-linux-firmware
-base-devel
 alsa-utils
+base
+base-devel
 bash-completion
 bind-tools
 bluez
@@ -16,10 +14,11 @@ cups
 dhclient
 diffutils
 dnsmasq
-dstat
 dosfstools
+dstat
 e2fsprogs
 efibootmgr
+eog
 ethtool
 evince
 exfatprogs
@@ -32,7 +31,6 @@ fsarchiver
 fzf
 gdm
 gimp
-eog
 git
 gnome-backgrounds
 gnome-boxes
@@ -91,6 +89,8 @@ lftp
 libfido2
 libusb-compat
 libva-utils
+linux
+linux-firmware
 lsscsi
 lvm2
 man-db
@@ -133,9 +133,9 @@ simple-scan
 smartmontools
 sof-firmware
 squashfs-tools
+strace
 sudo
 sushi
-strace
 syslinux
 systemd-resolvconf
 tcpdump
