@@ -158,6 +158,7 @@ ripgrep
 rsync
 rygel
 sdparm
+seahorse
 sg3_utils
 simple-scan
 smartmontools
