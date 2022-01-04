@@ -67,7 +67,6 @@ alias ll="ls -la"
 ### Docker compose shortcus
 alias dc="docker-compose"
 alias dcu="docker-compose up"
-alias dcutest="docker-compose up pg mongodb redis elastic"
 
 ### Git config for work repositories
 alias git-config-arduino="git config user.signingkey 2B581A92B13543C26099E11893DE8D68B831B86F && git config user.email g.lumia@arduino.cc"
@@ -90,7 +89,7 @@ case "$(uname -s)" in
 		;;
 esac
 
-### Enable/disable microphone loopback
+### Enable/disable microphone loopback (linux only)
 alias miclb="pactl load-module module-loopback latency_msec=1"
 alias unmiclb="pactl unload-module module-loopback"
 
