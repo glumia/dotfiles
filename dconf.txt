@@ -10,9 +10,9 @@ sources=[('xkb', 'us')]
 xkb-options=['lv3:ralt_switch', 'caps:ctrl_modifier', 'compose:ralt']
 
 [org/gnome/desktop/peripherals/keyboard]
-delay=uint32 281
+delay=uint32 225
 numlock-state=true
-repeat-interval=uint32 21
+repeat-interval=uint32 15
 
 [org/gnome/desktop/peripherals/touchpad]
 tap-to-click=true
