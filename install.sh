@@ -18,7 +18,6 @@ DOTFILES="
 	.bash_aliases
 	.gitconfig
 	.gitignore
-	.muttrc
 	.tmux.conf
 "
 for file in $DOTFILES; do
