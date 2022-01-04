@@ -29,5 +29,16 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+### Platform specific stuff
+case "$(uname -s)" in
+	"Darwin")
+		export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
+		;;
+	"Linux")
+		;;
+	"OpenBSD")
+		;;
+esac
+
 # Further Pyenv Stuff
 eval "$(pyenv init --path)"
