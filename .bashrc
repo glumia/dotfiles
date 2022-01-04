@@ -73,6 +73,7 @@ alias l='ls -CF'
 [ -s /opt/homebrew/opt/fzf/shell/key-bindings.bash ] && \
 	. /opt/homebrew/opt/fzf/shell/key-bindings.bash
 
+# NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
