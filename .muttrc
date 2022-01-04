@@ -6,7 +6,7 @@ set ssl_force_tls=yes
 
 set folder = "imaps://outlook.office365.com:993/"
 set imap_user = "g.lumia@outlook.com"
-set imap_pass = $my_pass 
+set imap_pass = $my_pass
 set from = $imap_user
 set use_from = yes
 set realname = "Giuseppe Lumia"
@@ -31,14 +31,14 @@ bind index,pager g group-chat-reply # Preserve 'To' recipients
 
 
 # Patch syntax highlighting (taken from Drew DeVault's config)
-#color   normal  white           default                                         
+#color   normal  white           default
 color   body    black     	default         ^[[:space:]].*
-color   body    yellow          default         ^(diff).*                       
-#color   body    white           default         ^[\-\-\-].*                     
-#color   body    white           default         ^[\+\+\+].*                     
-#color   body    green           default         ^[\+].*                         
-#color   body    red             default         ^[\-].*                         
-#color   body    brightblue      default         [@@].*                          
+color   body    yellow          default         ^(diff).*
+#color   body    white           default         ^[\-\-\-].*
+#color   body    white           default         ^[\+\+\+].*
+#color   body    green           default         ^[\+].*
+#color   body    red             default         ^[\-].*
+#color   body    brightblue      default         [@@].*
 color   body    black     	default         ^(\s).*
 color   body    cyan            default         ^(Signed-off-by).*
 color   body    cyan            default         ^(Docker-DCO-1.1-Signed-off-by).*

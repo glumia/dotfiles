@@ -112,6 +112,7 @@ let g:ale_fixers = {
 \	'cpp': ['clang-format'],
 \	'c': ['clang-format'],
 \	'go': ['goimports'],
+\	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_linters= {
 \	'sh': ['shellcheck'],

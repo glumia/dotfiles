@@ -98,7 +98,7 @@ alias unmiclb="pactl unload-module module-loopback"
 
 # gocover runs tests of go module(s) passed as argument and opens their coverage report
 # on browser.
-gocover(){ 
+gocover(){
 	local t
 	t=$(mktemp -t cover.XXXXXX)
 	go test -coverprofile="$t" "$@" && go tool cover -html "$t" && rm "$t"
