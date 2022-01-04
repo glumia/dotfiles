@@ -69,7 +69,6 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 
 ### Git config for work repositories
-alias git-config-arduino="git config user.signingkey 2B581A92B13543C26099E11893DE8D68B831B86F && git config user.email g.lumia@arduino.cc"
 alias git-config-gorgias="git config user.signingkey B9055507161F10604D1239DF4491F7094749A6E6 && git config user.email giuseppe.lumia@gorgias.com"
 
 ### Use local version of serverless framework
