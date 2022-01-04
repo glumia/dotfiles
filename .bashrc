@@ -80,6 +80,9 @@ alias l='ls -CF'
 # Brew (MacOS)
 [ -s /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Fix for 'gpg: signing failed: Inappropriate ioctl for device'
+export GPG_TTY=$(tty)
+
 # Pyenv -- Keep this at the end of this file
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
