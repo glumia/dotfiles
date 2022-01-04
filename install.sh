@@ -14,6 +14,7 @@ printf "\nLinking home dotfiles\n"
 DOTFILES="
 	.profile
 	.bashrc
+	.zshrc
 	.bash_aliases
 	.gitconfig
 	.gitignore
