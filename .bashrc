@@ -62,9 +62,11 @@ alias l='ls -CF'
 # shellcheck disable=SC1090
 [ -s ~/.bash_private ] && . ~/.bash_private
 
-# Load bash tab completion
+# Load completion
 [ -s /usr/share/bash-completion/bash_completion ] && \
     . /usr/share/bash-completion/bash_completion
+[ -s /opt/homebrew/etc/profile.d/bash_completion.sh ] && \
+	. /opt/homebrew/etc/profile.d/bash_completion.sh
 
 # Load FZF keybindings and completion
 [ -s /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
@@ -74,6 +76,9 @@ alias l='ls -CF'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # shellcheck disable=SC1090
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Brew (MacOS)
+[ -s /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Pyenv -- Keep this at the end of this file
 if command -v pyenv 1>/dev/null 2>&1; then
