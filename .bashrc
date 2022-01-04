@@ -57,9 +57,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# shellcheck disable=SC1090
+# Load aliases
 [ -s ~/.bash_aliases ] && . ~/.bash_aliases
-# shellcheck disable=SC1090
 [ -s ~/.bash_private ] && . ~/.bash_private
 
 # Load completion
@@ -71,10 +70,10 @@ alias l='ls -CF'
 # Load FZF keybindings and completion
 [ -s /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
 [ -s /usr/share/fzf/completion.bash ] && . /usr/share/fzf/completion.bash
+[ -s /opt/homebrew/opt/fzf/shell/key-bindings.bash ] && \
+	. /opt/homebrew/opt/fzf/shell/key-bindings.bash
 
-# shellcheck disable=SC1090
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# shellcheck disable=SC1090
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Brew (MacOS)
