@@ -9,15 +9,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
-[sendemail]
-	smtpserver = smtp.mail.me.com
-	smtpuser = gius@glumia.dev
-	smtpencryption = tls
-	smtpserverport = 587
-	annotate = yes
 [pull]
 	rebase = true
-[include]
-	path = ~/.gitconfig-secret
 [http]
 	cookiefile = /home/gius/.gitcookies
