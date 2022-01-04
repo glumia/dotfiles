@@ -20,7 +20,6 @@ export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
-	# shellcheck disable=SC1090
 	. "$HOME/.bashrc"
     fi
 fi

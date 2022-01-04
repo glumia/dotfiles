@@ -70,7 +70,6 @@ printf "\n\n"
 
 # Configure userspace
 rm -f "/home/$uname/.bash_profile"
-# shellcheck disable=SC2016,SC1004
 su -c 'git clone https://github.com/glumia/dotfiles.git \
 			~/dotfiles \
 	&& cd ~/dotfiles  \
