@@ -1,6 +1,6 @@
 [user]
-	signingkey = 271ECF56EA002788
-	email = g.lumia@outlook.com
+	signingkey = 341262CEC2F95AB6
+	email = gius@glumia.dev
 	name = Giuseppe Lumia
 [commit]
 	gpgsign = true
@@ -10,8 +10,8 @@
 	excludesfile = ~/.gitignore
 	editor = nvim
 [sendemail]
-	smtpserver = smtp.office365.com
-	smtpuser = g.lumia@outlook.com
+	smtpserver = smtp.mail.me.com
+	smtpuser = gius@glumia.dev
 	smtpencryption = tls
 	smtpserverport = 587
 	annotate = yes
@@ -21,5 +21,3 @@
 	path = ~/.gitconfig-secret
 [http]
 	cookiefile = /home/gius/.gitcookies
-[url "git@github.com:bcmi-labs"]
-	insteadOf = https://github.com/bcmi-labs
