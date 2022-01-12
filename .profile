@@ -14,9 +14,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # Node version manager stuff
 export NVM_DIR="$HOME/.nvm"
 
-# Docker (rootless install) stuff
-export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
@@ -34,6 +31,8 @@ case "$(uname -s)" in
 		export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 		;;
 	"Linux")
+		# Docker (rootless install) stuff
+		export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
 		;;
 	"OpenBSD")
 		;;
