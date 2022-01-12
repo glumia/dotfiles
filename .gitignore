@@ -11,3 +11,6 @@ tags
 
 # Pyenv local env
 .python-version
+
+# Neovim per-project config
+.nvimrc

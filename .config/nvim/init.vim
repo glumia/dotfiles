@@ -190,7 +190,6 @@ nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>
 
 " Yank path
 nnoremap <leader>yp :let @+=expand("%")<CR>
-" }}
 
 " Back to normal mode from embedded terminal
 tnoremap <C-\> <C-\><C-n>
@@ -199,3 +198,8 @@ tnoremap <C-\> <C-\><C-n>
 nnoremap <c-s>n :tabe<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
+
+" }}}
+
+set exrc
+set secure
