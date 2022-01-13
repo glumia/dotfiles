@@ -74,6 +74,9 @@ alias git-config-gorgias="git config user.signingkey B9055507161F10604D1239DF449
 ### Use local version of serverless framework
 alias sls="./node_modules/.bin/sls"
 
+### Tmux related
+alias mux="tmuxinator"
+
 ### Platform specific aliases
 case "$(uname -s)" in
 	"Darwin")
