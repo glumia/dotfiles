@@ -145,10 +145,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)			-- gt: Go Type
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)		-- C-k:  Help
 
-  buf_set_keymap('n', 'LL', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)		-- LL: Location List
-  buf_set_keymap('n', 'Ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)		-- Ln: Location Next
-  buf_set_keymap('n', 'Lp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)		-- Lp: Location Previous
-  buf_set_keymap('n', 'Lk', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)	-- Lp: Location Help
+  buf_set_keymap('n', 'LL', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)		-- LL: Location List
+  buf_set_keymap('n', 'Ln', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)		-- Ln: Location Next
+  buf_set_keymap('n', 'Lp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)		-- Lp: Location Previous
+  buf_set_keymap('n', 'Lk', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)		-- Lk: Location Help
 end
 
 
