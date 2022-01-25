@@ -88,6 +88,7 @@ call plug#begin()
 
   " Fuzzy finder
   Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
 
   " Theme
   Plug 'gruvbox-community/gruvbox'
@@ -172,7 +173,7 @@ set background=light
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <leader>p :FZF<cr>
+nnoremap <leader>p :GFiles<cr>
 nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>R :source $MYVIMRC<CR>
 nmap <leader>k <Plug>(ale_fix)
