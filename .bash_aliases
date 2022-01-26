@@ -69,6 +69,9 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 
 ### Git config for work repositories
+# Hey you! Don't bother to report this to my company as a data leak, all my public GPG
+# keys (and their emails) are already available at github.com/glumia.gpg (as those of
+# any other Github user).
 alias git-config-gorgias="git config user.signingkey B9055507161F10604D1239DF4491F7094749A6E6 && git config user.email giuseppe.lumia@gorgias.com"
 
 ### Use local version of serverless framework
