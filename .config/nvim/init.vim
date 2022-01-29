@@ -101,7 +101,15 @@ call plug#end()
 " Plugins config
 let NERDTreeShowHidden=1
 
-" Neovim LSP Config
+" Gruvbox theme
+set termguicolors
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
+colorscheme gruvbox
+set background=light
+" }}}
+
+" LSP Config {{{
 lua << EOF
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -144,14 +152,6 @@ require'lspconfig'.yamlls.setup{on_attach=on_attach}
 require'lspconfig'.bashls.setup{on_attach=on_attach}
 
 EOF
-
-" Gruvbox theme
-set termguicolors
-let g:gruvbox_contrast_dark = "hard"
-let g:gruvbox_contrast_light = "hard"
-colorscheme gruvbox
-set background=light
-
 " }}}
 
 " Key mappings and custom commands {{{
@@ -194,7 +194,6 @@ tnoremap <C-\> <C-\><C-n>
 nnoremap <c-s>n :tabe<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
-
 " }}}
 
 set exrc
