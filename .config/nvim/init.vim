@@ -155,9 +155,17 @@ end
 
 require'lspconfig'.gopls.setup{on_attach=on_attach}
 require'lspconfig'.clangd.setup{on_attach=on_attach}
-require'lspconfig'.pylsp.setup{on_attach=on_attach}
+require'lspconfig'.pylsp.setup{
+  on_attach=on_attach,
+  settings={
+    pylsp={
+      configurationSources={"flake8", "pycodestyle"}
+    }
+  },
+}
 require'lspconfig'.tsserver.setup{on_attach=on_attach}
 require'lspconfig'.yamlls.setup{on_attach=on_attach}
+
 EOF
 
 " Gruvbox theme
