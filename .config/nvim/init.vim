@@ -165,8 +165,8 @@ nnoremap <c-p> :cprevious<cr>
 nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
 
 " Convert spaces to tabs and viceversa
-" nnoremap <leader>rt :set noet <bar> :%retab!<cr>
-" nnoremap <leader>nrt :set et <bar> :retab!<cr>
+command TabsAreTabs :set noet | :retab!
+command TabsAreSpaces :set et | :retab!
 
 " Check spelling errors
 nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>
