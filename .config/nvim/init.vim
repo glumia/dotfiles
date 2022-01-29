@@ -51,10 +51,9 @@ autocmd FileType mail setlocal noautoindent cc=73
 autocmd FileType gitcommit setlocal cc=73
 augroup filetypedetect
   autocmd BufRead,BufNewFile *.mail setfiletype mail
-augroup filetypedetect
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
-augroup filetypedetect
   autocmd BufRead,BufNewFile *.mmark setfiletype markdown
+augroup end
 " }}}
 
 " Plugins (vim-plug) {{{
@@ -175,6 +174,7 @@ nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
 
+" LSP Restart
 nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
 
 " Convert spaces to tabs and viceversa
