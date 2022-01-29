@@ -80,9 +80,6 @@ call plug#begin()
   " here anyway just in case I'm forced to use vim.
   "Plug 'tpope/vim-sensible'
 
-  " ALE (autocompletion, linting, lsp client, and many other things)
-  Plug 'dense-analysis/ale'
-
   " Neovim LSP config
   Plug 'neovim/nvim-lspconfig'
 
@@ -102,29 +99,6 @@ call plug#end()
 " Plugins config
 let NERDTreeShowHidden=1
 
-" ALE Config
-let g:ale_linters_explicit = 1
-let g:ale_disable_lsp = 1
-let g:ale_fixers = {
-\	'python': ['autoimport', 'isort', 'black'],
-\	'yaml': ['prettier'],
-\	'json': ['prettier'],
-\	'arduino': ['clang-format'],
-\	'cpp': ['clang-format'],
-\	'c': ['clang-format'],
-\	'go': ['goimports'],
-\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
-let g:ale_linters= {
-\	'sh': ['shellcheck'],
-\	'markdown': ['proselint'],
-\}
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_changed = 1
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-
 " Neovim LSP Config
 lua << EOF
 local on_attach = function(client, bufnr)
@@ -136,7 +110,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)		-- <leader>ca: Code Action
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)			-- gD: Go Declaration
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)			-- gd: Go Definition
-  buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)		-- <leader>f:  Format (buffer)
+  buf_set_keymap("n", "<leader>k", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)		-- <leader>k:  Format (buffer)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)				-- K:  Help
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)			-- gi: Go Implementation
   buf_set_keymap('n', 'gu', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)			-- gu: Go Users (users of this obj)
@@ -185,7 +159,6 @@ nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>p :GFiles<cr>
 nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>R :source $MYVIMRC<CR>
-nmap <leader>k <Plug>(ale_fix)
 nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
