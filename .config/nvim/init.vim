@@ -165,6 +165,7 @@ require'lspconfig'.pylsp.setup{
 }
 require'lspconfig'.tsserver.setup{on_attach=on_attach}
 require'lspconfig'.yamlls.setup{on_attach=on_attach}
+require'lspconfig'.bashls.setup{on_attach=on_attach}
 
 EOF
 
