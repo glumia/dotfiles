@@ -142,13 +142,31 @@ require'lspconfig'.pylsp.setup{
   on_attach=on_attach,
   settings={
     pylsp={
-      configurationSources={"flake8", "pycodestyle"}
-    }
+      configurationSources={"flake8", "pycodestyle"},
+    },
   },
 }
 require'lspconfig'.tsserver.setup{on_attach=on_attach}
 require'lspconfig'.yamlls.setup{on_attach=on_attach}
-require'lspconfig'.bashls.setup{on_attach=on_attach}
+require('lspconfig').efm.setup{
+  on_attach=on_attach,
+  settings={
+    languages={
+      sh={
+        {
+          lintCommand="shellcheck -f gcc -x",
+          lintSource="shellcheck",
+          lintFormats={
+            "%f:%l:%c: %trror: %m",
+            "%f:%l:%c: %tarning: %m",
+            "%f:%l:%c: %tote: %m",
+          },
+        },
+      },
+    },
+  filetypes={"sh"},
+  },
+}
 
 EOF
 " }}}
