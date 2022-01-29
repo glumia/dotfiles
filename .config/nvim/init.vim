@@ -154,16 +154,27 @@ set background=light
 
 " }}}
 
-" Key mappings {{{
+" Key mappings and custom commands {{{
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+
 nnoremap <leader>t :NERDTreeToggle<cr>
+
+" fzf.vim
 nnoremap <leader>p :GFiles<cr>
+nnoremap <leader>o :Buffers<cr>
+nnoremap <leader>f :Rg 
+nnoremap <leader>d :Tags<cr>
+
+" fugitive.vim (WIP)
+nnoremap <leader>b :G blame 
+
 nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>R :source $MYVIMRC<CR>
 nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
+
 nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
 
 " Convert spaces to tabs and viceversa
@@ -179,7 +190,7 @@ nnoremap <leader>yp :let @+=expand("%")<CR>
 " Back to normal mode from embedded terminal
 tnoremap <C-\> <C-\><C-n>
 
-" Tab mappings
+" Tabs mappings
 nnoremap <c-s>n :tabe<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
