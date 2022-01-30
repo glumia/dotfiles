@@ -81,6 +81,9 @@ call plug#begin()
   " here anyway just in case I'm forced to use vim.
   "Plug 'tpope/vim-sensible'
 
+  " ALE - Asynchronous Linting Engine
+  Plug 'dense-analysis/ale'
+
   " Neovim LSP config
   Plug 'neovim/nvim-lspconfig'
 
@@ -99,6 +102,29 @@ call plug#end()
 
 " Plugins config
 let NERDTreeShowHidden=1
+
+" ALE Config
+let g:ale_linters_explicit = 1
+let g:ale_disable_lsp = 1
+let g:ale_fixers = {
+\ 'python': ['autoimport', 'isort', 'black'],
+\ 'yaml': ['prettier'],
+\ 'json': ['prettier'],
+\ 'arduino': ['clang-format'],
+\ 'cpp': ['clang-format'],
+\ 'c': ['clang-format'],
+\ 'go': ['goimports'],
+\}
+let g:ale_linters= {
+\ 'sh': ['shellcheck'],
+\ 'markdown': ['proselint'],
+\}
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+
 
 " Gruvbox theme
 set termguicolors
@@ -135,7 +161,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'Lk', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)         -- Lk: Diagnostics Help
 end
 
-
 require'lspconfig'.gopls.setup{on_attach=on_attach}
 require'lspconfig'.clangd.setup{on_attach=on_attach}
 require'lspconfig'.pylsp.setup{
@@ -148,25 +173,6 @@ require'lspconfig'.pylsp.setup{
 }
 require'lspconfig'.tsserver.setup{on_attach=on_attach}
 require'lspconfig'.yamlls.setup{on_attach=on_attach}
-require('lspconfig').efm.setup{
-  on_attach=on_attach,
-  settings={
-    languages={
-      sh={
-        {
-          lintCommand="shellcheck -f gcc -x",
-          lintSource="shellcheck",
-          lintFormats={
-            "%f:%l:%c: %trror: %m",
-            "%f:%l:%c: %tarning: %m",
-            "%f:%l:%c: %tote: %m",
-          },
-        },
-      },
-    },
-  filetypes={"sh"},
-  },
-}
 
 EOF
 " }}}
@@ -185,6 +191,9 @@ nnoremap <leader>d :Tags<cr>
 
 " fugitive.vim (WIP)
 nnoremap <leader>b :G blame 
+
+" ALE (note: this is overridden by language servers when available)
+nmap <leader>k <Plug>(ale_fix)
 
 nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>R :source $MYVIMRC<CR>
