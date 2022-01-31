@@ -190,7 +190,7 @@ nnoremap <leader>f :Rg
 nnoremap <leader>d :Tags<cr>
 
 " fugitive.vim (WIP)
-nnoremap <leader>b :G blame 
+nnoremap <leader>b :G blame<cr>
 
 " ALE (note: this is overridden by language servers when available)
 nmap <leader>k <Plug>(ale_fix)
