@@ -81,6 +81,9 @@ call plug#begin()
   " here anyway just in case I'm forced to use vim.
   "Plug 'tpope/vim-sensible'
 
+  " vim-unimpaired: pairs of handy bracket mappings
+  Plug 'tpope/vim-unimpaired'
+
   " ALE - Asynchronous Linting Engine
   Plug 'dense-analysis/ale'
 
@@ -181,6 +184,7 @@ EOF
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
+nnoremap <leader>w :NERDTreeFind<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 
 " fzf.vim
@@ -218,7 +222,7 @@ nnoremap <leader>yp :let @+=expand("%")<CR>
 tnoremap <C-\> <C-\><C-n>
 
 " Tabs mappings
-nnoremap <c-s>n :tabe<cr>
+nnoremap <c-s>n :tab split<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
 " }}}
