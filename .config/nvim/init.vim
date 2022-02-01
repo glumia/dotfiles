@@ -162,6 +162,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'Ln', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)          -- Ln: Diagnostics Next
   buf_set_keymap('n', 'Lp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)          -- Lp: Diagnostics Previous
   buf_set_keymap('n', 'Lk', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)         -- Lk: Diagnostics Help
+
+  -- Override tsserver code formatting with eslint
+  for _, value in ipairs({'javascript','javascriptreact','javascript.jsx','typescript',
+    'typescriptreact','typescript.tsx'}) do
+    if vim.bo.filetype == value then
+      buf_set_keymap("n", "<leader>k", "<cmd>EslintFixAll<CR>", opts)
+    end
+  end
 end
 
 require'lspconfig'.gopls.setup{on_attach=on_attach}
@@ -175,6 +183,7 @@ require'lspconfig'.pylsp.setup{
   },
 }
 require'lspconfig'.tsserver.setup{on_attach=on_attach}
+require'lspconfig'.eslint.setup{on_attach=on_attach}
 require'lspconfig'.yamlls.setup{on_attach=on_attach}
 
 EOF
