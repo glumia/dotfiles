@@ -185,6 +185,14 @@ require'lspconfig'.pylsp.setup{
 require'lspconfig'.tsserver.setup{on_attach=on_attach}
 require'lspconfig'.eslint.setup{on_attach=on_attach}
 require'lspconfig'.yamlls.setup{on_attach=on_attach}
+require'lspconfig'.stylelint_lsp.setup{
+  on_attach=on_attach,
+  settings = {
+    stylelintplus = {
+      autoFixOnFormat=true,
+    },
+  },
+}
 
 EOF
 " }}}
