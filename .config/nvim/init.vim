@@ -77,8 +77,8 @@ call plug#begin()
   " vim-fugitive - Check project's README for features
   Plug 'tpope/vim-fugitive'
 
-  " Sensitive vim defaults - Not needed since I'm on neovim, but I put it
-  " here anyway just in case I'm forced to use vim.
+  " Sensitive vim defaults - not needed since I'm on Neovim, I keep it here as a
+  " reminder in case I should ever go back to default 'plain' vim.
   "Plug 'tpope/vim-sensible'
 
   " vim-unimpaired: pairs of handy bracket mappings
@@ -243,6 +243,3 @@ nnoremap <c-s>n :tab split<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
 " }}}
-
-set exrc
-set secure
