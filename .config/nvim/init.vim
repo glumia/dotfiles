@@ -139,6 +139,8 @@ set background=light
 
 " LSP Config {{{
 lua << EOF
+local lspconfig = require('lspconfig')
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -172,9 +174,9 @@ local on_attach = function(client, bufnr)
   end
 end
 
-require'lspconfig'.gopls.setup{on_attach=on_attach}
-require'lspconfig'.clangd.setup{on_attach=on_attach}
-require'lspconfig'.pylsp.setup{
+lspconfig.gopls.setup{on_attach=on_attach}
+lspconfig.clangd.setup{on_attach=on_attach}
+lspconfig.pylsp.setup{
   on_attach=on_attach,
   settings={
     pylsp={
@@ -182,10 +184,10 @@ require'lspconfig'.pylsp.setup{
     },
   },
 }
-require'lspconfig'.tsserver.setup{on_attach=on_attach}
-require'lspconfig'.eslint.setup{on_attach=on_attach}
-require'lspconfig'.yamlls.setup{on_attach=on_attach}
-require'lspconfig'.stylelint_lsp.setup{
+lspconfig.tsserver.setup{on_attach=on_attach}
+lspconfig.eslint.setup{on_attach=on_attach}
+lspconfig.yamlls.setup{on_attach=on_attach}
+lspconfig.stylelint_lsp.setup{
   on_attach=on_attach,
   settings = {
     stylelintplus = {
