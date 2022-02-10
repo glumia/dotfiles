@@ -106,6 +106,8 @@ call plug#end()
 " Plugins config
 let NERDTreeShowHidden=1
 
+let g:fzf_preview_window = ['up:70%:hidden', 'ctrl-/']
+
 " ALE Config
 let g:ale_linters_explicit = 1
 let g:ale_disable_lsp = 1
