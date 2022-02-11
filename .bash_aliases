@@ -67,6 +67,7 @@ alias ll="ls -la"
 ### Docker compose shortcus
 alias dc="docker-compose"
 alias dcu="docker-compose up"
+alias dcd="docker-compose down"
 
 ### Git config for work repositories
 # Hey you! Don't bother to report this to my company as a data leak, all my public GPG
