@@ -246,4 +246,7 @@ tnoremap <C-\> <C-\><C-n>
 nnoremap <c-s>n :tab split<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
+
+" No need to stretch to exit
+inoremap jk <esc>
 " }}}
