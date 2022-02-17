@@ -62,6 +62,9 @@ call plug#begin()
   " NERDTree
   Plug 'preservim/nerdtree'
 
+  " Tagbar
+  Plug 'preservim/tagbar'
+
   " Editorconfig plugin
   Plug 'editorconfig/editorconfig-vim'
 
@@ -207,6 +210,7 @@ let mapleader = " "
 
 nnoremap <leader>w :NERDTreeFind<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>r :TagbarToggle<cr>
 
 " fzf.vim
 nnoremap <leader>p :GFiles<cr>
