@@ -1,5 +1,10 @@
 " vim: fdm=marker
 
+" Nvim settings {{{
+
+" Mouse should scroll the editor, not the terminal.
+set mouse=a
+
 " Show line numbers.
 set number
 
@@ -9,54 +14,72 @@ set number
 set ignorecase
 set smartcase
 
-" Set column highlight at char 89
-" I use this value and not 80 (Linux kernel coding style) since I
-" spend most of my time working in Python and use Black on my projects.
-set ruler
+" Set column highlight at char 89.
+" I use this value and not 80 (Linux kernel coding style) since I spend
+" most of my time working in Python and use Black on my projects.
 set cc=89
 
-" Mouse should scroll the editor, not the terminal
-set mouse=a
+augroup nvimInit
+  au!
 
-" Jump to the last position when reopening a file
-autocmd BufReadPost *
-  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-  \ |   exe "normal! g`\""
-  \ | endif
+  " Jump to the last position when reopening a file
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
 
-" Share system's clipboard register
-set clipboard=unnamedplus
+augroup end
 
+" Share system's clipboard register.
+set clipboard=unnamed,unnamedplus
 
-" Search down into subfolders
+" Search down into subfolders.
 set path+=**
 
+" Enable true colors.
+set termguicolors
+
+" Praise the sun.
+set background=light
+
+" Use space as leader key.
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+" }}}
+
 " Preferences for different file types {{{
-autocmd FileType c setlocal et ts=2 sw=2 tw=80 cc=80
-autocmd FileType h setlocal et ts=2 sw=2 tw=80 cc=80
-autocmd FileType cpp setlocal et ts=2 sw=2 tw=80
-autocmd FileType s setlocal noet ts=8 sw=8
-autocmd FileType go setlocal noet ts=4 sw=4 makeprg=go\ build
-autocmd FileType sh setlocal noet ts=4 sw=4
-autocmd BufRead,BufNewFile *.js setlocal et ts=2 sw=2
-autocmd FileType html setlocal et ts=2 sw=2
-autocmd FileType yaml setlocal et ts=2 sw=2
-autocmd FileType vim setlocal et ts=2 sw=2
-autocmd FileType markdown setlocal tw=80 et ts=2 sw=2
-autocmd FileType text setlocal tw=80 cc=80
-autocmd FileType typescript setlocal et ts=2 sw=2
-autocmd FileType python setlocal et ts=4 sw=4
-autocmd FileType tex hi Error ctermbg=NONE
-autocmd FileType mail setlocal noautoindent cc=73
-autocmd FileType gitcommit setlocal cc=73
-augroup filetypedetect
+
+augroup nvimInitFType
+  au!
+
+  autocmd FileType c setlocal et ts=2 sw=2 tw=80 cc=80
+  autocmd FileType h setlocal et ts=2 sw=2 tw=80 cc=80
+  autocmd FileType cpp setlocal et ts=2 sw=2 tw=80
+  autocmd FileType s setlocal noet ts=8 sw=8
+  autocmd FileType go setlocal noet ts=4 sw=4 makeprg=go\ build
+  autocmd FileType sh setlocal noet ts=4 sw=4
+  autocmd BufRead,BufNewFile *.js setlocal et ts=2 sw=2
+  autocmd FileType html setlocal et ts=2 sw=2
+  autocmd FileType yaml setlocal et ts=2 sw=2
+  autocmd FileType vim setlocal et ts=2 sw=2
+  autocmd FileType markdown setlocal tw=80 et ts=2 sw=2
+  autocmd FileType text setlocal tw=80 cc=80
+  autocmd FileType typescript setlocal et ts=2 sw=2
+  autocmd FileType python setlocal et ts=4 sw=4
+  autocmd FileType tex hi Error ctermbg=NONE
+  autocmd FileType mail setlocal noautoindent cc=73
+  autocmd FileType gitcommit setlocal cc=73
   autocmd BufRead,BufNewFile *.mail setfiletype mail
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
   autocmd BufRead,BufNewFile *.mmark setfiletype markdown
+
 augroup end
+
 " }}}
 
 " Plugins (vim-plug) {{{
+
 call plug#begin()
 
   " NERDTree
@@ -80,10 +103,6 @@ call plug#begin()
   " vim-fugitive - Check project's README for features
   Plug 'tpope/vim-fugitive'
 
-  " Sensitive vim defaults - not needed since I'm on Neovim, I keep it here as a
-  " reminder in case I should ever go back to default 'plain' vim.
-  "Plug 'tpope/vim-sensible'
-
   " vim-unimpaired: pairs of handy bracket mappings
   Plug 'tpope/vim-unimpaired'
 
@@ -106,9 +125,10 @@ call plug#begin()
 call plug#end()
 
 
-" Plugins config
+" NERDTree config
 let NERDTreeShowHidden=1
 
+" FZF Config
 let g:fzf_preview_window = ['up:70%:hidden', 'ctrl-/']
 
 " ALE Config
@@ -135,14 +155,14 @@ let g:ale_lint_on_text_changed = 0
 
 
 " Gruvbox theme
-set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
-set background=light
+
 " }}}
 
 " LSP Config {{{
+
 lua << EOF
 local lspconfig = require('lspconfig')
 
@@ -202,24 +222,23 @@ lspconfig.stylelint_lsp.setup{
 }
 
 EOF
+
 " }}}
 
 " Key mappings and custom commands {{{
-nnoremap <SPACE> <Nop>
-let mapleader = " "
 
 nnoremap <leader>w :NERDTreeFind<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <leader>r :TagbarToggle<cr>
+nnoremap <leader>g :TagbarToggle<cr>
 
 " fzf.vim
 nnoremap <leader>p :GFiles<cr>
 nnoremap <leader>o :Buffers<cr>
+nnoremap <leader>i :Tags<cr>
 nnoremap <leader>f :Rg 
-nnoremap <leader>d :Tags<cr>
 
 " fugitive.vim (WIP)
-nnoremap <leader>b :G blame<cr>
+nnoremap <leader>q :G blame<cr>
 
 " ALE (note: this is overridden by language servers when available)
 nmap <leader>k <Plug>(ale_fix)
@@ -253,4 +272,5 @@ nnoremap <c-s>l :tabn<cr>
 
 " No need to stretch to exit
 inoremap jk <esc>
+
 " }}}
