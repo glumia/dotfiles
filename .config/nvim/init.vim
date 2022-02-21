@@ -232,7 +232,12 @@ nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>g :TagbarToggle<cr>
 
 " fzf.vim
-nnoremap <leader>p :GFiles<cr>
+silent! !git rev-parse --is-inside-work-tree
+if v:shell_error == 0
+  nnoremap <leader>p :GFiles<cr>
+else
+  nnoremap <leader>p :Files<cr>
+endif
 nnoremap <leader>o :Buffers<cr>
 nnoremap <leader>i :Tags<cr>
 nnoremap <leader>f :Rg 
