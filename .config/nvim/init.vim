@@ -257,7 +257,7 @@ command TabsAreTabs :set noet | :retab!
 command TabsAreSpaces :set et | :retab!
 
 " Check spelling errors
-nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>
+nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>:lw<cr>
 
 " Yank path
 nnoremap <leader>yp :let @+=expand("%")<CR>
