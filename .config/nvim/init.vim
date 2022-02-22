@@ -112,6 +112,9 @@ call plug#begin()
   " Neovim LSP config
   Plug 'neovim/nvim-lspconfig'
 
+  " Neovim Treesitter
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
   " Fuzzy finder
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
@@ -161,7 +164,7 @@ colorscheme gruvbox
 
 " }}}
 
-" LSP Config {{{
+" LSP and Treesitter config {{{
 
 lua << EOF
 local lspconfig = require('lspconfig')
@@ -221,6 +224,13 @@ lspconfig.stylelint_lsp.setup{
   },
 }
 
+-- Enable Treesitter powered syntax highlighting
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 EOF
 
 " }}}
