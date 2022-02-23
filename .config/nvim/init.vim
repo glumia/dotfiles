@@ -204,14 +204,7 @@ end
 
 lspconfig.gopls.setup{on_attach=on_attach}
 lspconfig.clangd.setup{on_attach=on_attach}
-lspconfig.pylsp.setup{
-  on_attach=on_attach,
-  settings={
-    pylsp={
-      configurationSources={"flake8", "pycodestyle"},
-    },
-  },
-}
+lspconfig.pyright.setup{on_attach=on_attach}
 lspconfig.tsserver.setup{on_attach=on_attach}
 lspconfig.eslint.setup{on_attach=on_attach}
 lspconfig.yamlls.setup{on_attach=on_attach}
