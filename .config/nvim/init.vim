@@ -178,7 +178,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)           -- ca: Code Action
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)           -- gD: Go Declaration
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)            -- gd: Go Definition
-  buf_set_keymap("n", "<leader>k", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)     -- <leader>k:  Format (buffer)
+  --buf_set_keymap('n', '<leader>k', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)     -- <leader>k:  Format (buffer)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)                  -- K:  Help
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)        -- gi: Go Implementation
   buf_set_keymap('n', 'gu', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)        -- gu: Go Users (users of this obj)
@@ -193,7 +193,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'Lp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)          -- Lp: Diagnostics Previous
   buf_set_keymap('n', 'Lk', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)         -- Lk: Diagnostics Help
 
-  -- Override tsserver code formatting with eslint
+  -- Override code formatting with eslint
   for _, value in ipairs({'javascript','javascriptreact','javascript.jsx','typescript',
     'typescriptreact','typescript.tsx'}) do
     if vim.bo.filetype == value then
@@ -248,7 +248,7 @@ nnoremap <leader>f :Rg
 " fugitive.vim (WIP)
 nnoremap <leader>q :G blame<cr>
 
-" ALE (note: this is overridden by language servers when available)
+" ALE (note: this is sometimes overridden by language servers)
 nmap <leader>k <Plug>(ale_fix)
 
 nnoremap <leader>l :nohlsearch<cr>
