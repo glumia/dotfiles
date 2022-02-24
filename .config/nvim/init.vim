@@ -141,6 +141,7 @@ let g:ale_fixers = {
 \ 'python': ['autoimport', 'isort', 'black'],
 \ 'yaml': ['prettier'],
 \ 'json': ['prettier'],
+\ 'html': ['prettier'],
 \ 'arduino': ['clang-format'],
 \ 'cpp': ['clang-format'],
 \ 'c': ['clang-format'],
