@@ -282,4 +282,7 @@ nnoremap <c-s>l :tabn<cr>
 " No need to stretch to exit
 inoremap jk <esc>
 
+" Swap buffer
+nnoremap <leader>d :b#<cr>
+
 " }}}
