@@ -9,7 +9,17 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
+	pager = delta
 [pull]
 	rebase = true
 [http]
 	cookiefile = /home/gius/.gitcookies
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default

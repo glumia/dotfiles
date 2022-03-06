@@ -59,10 +59,11 @@ alias gt="git tag -a"
 ### Change directory to root path of git repository
 alias c='cd $(git rev-parse --show-toplevel)'
 
-### Some ls shortcuts
+### Modern Unix
+alias ls="ls --color=auto"
 alias l="ls -lhF" # ls with better defaults
-alias la="ls -a"
-alias ll="ls -la"
+alias grep='grep --color=auto'
+command -v bat > /dev/null && alias cat="bat"
 
 ### Docker compose shortcus
 alias dc="docker-compose"

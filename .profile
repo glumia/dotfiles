@@ -2,6 +2,9 @@
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
 export EDITOR=nvim
+export BAT_THEME="gruvbox-light"
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --exclude node_modules'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Go stuff
 export PATH="$PATH:$HOME/.go/bin:$HOME/go/bin"

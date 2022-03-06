@@ -22,6 +22,7 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /opt/homebrew/bin/lesspipe.sh ] && export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -35,6 +36,12 @@ else
 fi
 unset color_prompt
 
+# Set colors for ls, fd and other CLI tools.
+if command -v vivid 1>/dev/null; then
+	LS_COLORS="$(vivid generate gruvbox-light-hard)"
+	export LS_COLORS
+fi
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -43,19 +50,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Load aliases
 [ -s ~/.bash_aliases ] && . ~/.bash_aliases
@@ -72,12 +66,14 @@ alias l='ls -CF'
 [ -s /usr/share/fzf/completion.bash ] && . /usr/share/fzf/completion.bash
 [ -s /opt/homebrew/opt/fzf/shell/key-bindings.bash ] && \
 	. /opt/homebrew/opt/fzf/shell/key-bindings.bash
+[ -s /opt/homebrew/opt/fzf/shell/completion.bash ] && \
+	. /opt/homebrew/opt/fzf/shell/completion.bash
 
 # NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Brew (MacOS)
+# Brew
 [ -s /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Fix for 'gpg: signing failed: Inappropriate ioctl for device'
