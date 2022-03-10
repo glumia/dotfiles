@@ -36,12 +36,6 @@ else
 fi
 unset color_prompt
 
-# Set colors for ls, fd and other CLI tools.
-if command -v vivid 1>/dev/null; then
-	LS_COLORS="$(vivid generate gruvbox-light-hard)"
-	export LS_COLORS
-fi
-
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -78,6 +72,12 @@ esac
 
 # Fix for 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
+
+# Set colors for ls, fd and other CLI tools.
+if command -v vivid 1>/dev/null; then
+	LS_COLORS="$(vivid generate gruvbox-light-hard)"
+	export LS_COLORS
+fi
 
 # Pyenv -- Keep this at the end of this file
 if command -v pyenv 1>/dev/null 2>&1; then
