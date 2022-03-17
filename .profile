@@ -7,7 +7,7 @@ export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --ex
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Go stuff
-export PATH="$PATH:$HOME/.go/bin:$HOME/go/bin"
+export PATH="$HOME/.go/bin:$HOME/go/bin:$PATH"
 export GOPRIVATE="github.com/bcmi-labs*"
 
 # Pyenv stuff
@@ -16,6 +16,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Node version manager stuff
 export NVM_DIR="$HOME/.nvm"
+
+# Rust stuff
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
