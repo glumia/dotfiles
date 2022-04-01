@@ -74,7 +74,11 @@ alias dcd="docker-compose down"
 # Hey you! Don't bother to report this to my company as a data leak, all my public GPG
 # keys (and their emails) are already available at github.com/glumia.gpg (as those of
 # any other Github user).
-alias git-config-gorgias="git config user.signingkey B9055507161F10604D1239DF4491F7094749A6E6 && git config user.email giuseppe.lumia@gorgias.com"
+#
+# Obfuscated to prevent it from ending up on search engines and getting spam.
+#
+# shellcheck disable=SC2139
+alias git-config-gorgias="$(printf Z2l0IGNvbmZpZyB1c2VyLnNpZ25pbmdrZXkgQjkwNTU1MDcxNjFGMTA2MDREMTIzOURGNDQ5MUY3MDk0NzQ5QTZFNiAmJiBnaXQgY29uZmlnIHVzZXIuZW1haWwgZ2l1c2VwcGUubHVtaWFAZ29yZ2lhcy5jb20K | base64 --decode)" 
 
 ### Use local version of serverless framework
 alias sls="./node_modules/.bin/sls"
