@@ -63,7 +63,7 @@ alias c='cd $(git rev-parse --show-toplevel)'
 alias ls="ls --color=auto"
 alias l="ls -lhF" # ls with better defaults
 alias grep='grep --color=auto'
-command -v bat > /dev/null && alias cat="bat"
+command -v bat > /dev/null && alias cat="bat -p"
 
 ### Docker compose shortcus
 alias dc="docker-compose"
