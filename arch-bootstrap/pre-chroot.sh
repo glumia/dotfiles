@@ -31,6 +31,7 @@ lspci -v | grep -e VGA -e 3D | grep AMD > /dev/null \
 	&& packages="$packages xf86-video-amdgpu vulkan-radeon"
 
 # Disable warnings about word splitting, it is exactly what we want here.
+# shellcheck disable=SC2086
 pacstrap /mnt $packages
 
 # Generate fstab

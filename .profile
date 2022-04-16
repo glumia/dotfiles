@@ -23,6 +23,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
+	# shellcheck disable=SC1090
 	. "$HOME/.bashrc"
     fi
 fi
