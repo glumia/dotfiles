@@ -1,6 +1,5 @@
 #!/bin/sh
 LOCAL_BIN="$HOME/.local/bin"
-PWD=$(pwd)
 
 printf "Installing custom scripts and executables into ~/.local/bin\n"
 mkdir -p "$LOCAL_BIN"
