@@ -228,6 +228,11 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" Enable Treesitter based folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevelstart=99
+
 " }}}
 
 " Key mappings and custom commands {{{
