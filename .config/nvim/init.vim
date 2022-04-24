@@ -119,6 +119,9 @@ call plug#begin()
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
 
+  " Markdown table of contents generator
+  Plug 'mzlogin/vim-markdown-toc'
+
   " Theme
   Plug 'gruvbox-community/gruvbox'
 
