@@ -145,6 +145,7 @@ let g:ale_fixers = {
 \ 'yaml': ['prettier'],
 \ 'json': ['prettier'],
 \ 'html': ['prettier'],
+\ 'css': ['prettier'],
 \ 'arduino': ['clang-format'],
 \ 'cpp': ['clang-format'],
 \ 'c': ['clang-format'],
