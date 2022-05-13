@@ -112,9 +112,6 @@ call plug#begin()
   " Neovim LSP config
   Plug 'neovim/nvim-lspconfig'
 
-  " Neovim Treesitter
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
   " Fuzzy finder
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
@@ -169,7 +166,7 @@ colorscheme gruvbox
 
 " }}}
 
-" LSP and Treesitter config {{{
+" LSP config {{{
 
 lua << EOF
 local lspconfig = require('lspconfig')
@@ -222,20 +219,7 @@ lspconfig.stylelint_lsp.setup{
   },
 }
 
--- Enable Treesitter powered syntax highlighting
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {"python"},
-    additional_vim_regex_highlighting = false,
-  },
-}
 EOF
-
-" Enable Treesitter based folding
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevelstart=99
 
 " }}}
 
