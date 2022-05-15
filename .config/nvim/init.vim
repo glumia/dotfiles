@@ -119,6 +119,9 @@ call plug#begin()
   " Markdown table of contents generator
   Plug 'mzlogin/vim-markdown-toc'
 
+  " Github permalinks for line under cursor or selection
+  Plug 'pgr0ss/vim-github-url'
+
   " Theme
   Plug 'gruvbox-community/gruvbox'
 
@@ -264,6 +267,10 @@ nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>:lw<cr>
 
 " Yank path
 nnoremap <leader>yp :let @+=expand("%")<CR>
+
+" Yank Github URL
+nnoremap <leader>yu :GitHubURL<CR>
+vnoremap <leader>yu :GitHubURL<CR>
 
 " Back to normal mode from embedded terminal
 tnoremap <C-\> <C-\><C-n>
