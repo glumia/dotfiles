@@ -150,6 +150,7 @@ let g:ale_fixers = {
 \ 'cpp': ['clang-format'],
 \ 'c': ['clang-format'],
 \ 'go': ['goimports'],
+\ 'terraform': ['terraform'],
 \}
 let g:ale_linters= {
 \ 'sh': ['shellcheck'],
