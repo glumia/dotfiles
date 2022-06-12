@@ -79,11 +79,6 @@ if command -v vivid 1>/dev/null; then
 	export LS_COLORS
 fi
 
-# Add executables installed with gem to PATH.
-if command -v ruby >/dev/null && command -v gem >/dev/null; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
 # Pyenv -- Keep this at the end of this file
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

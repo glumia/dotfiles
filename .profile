@@ -8,7 +8,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Go stuff
 export PATH="$HOME/.go/bin:$HOME/go/bin:$PATH"
-export GOPRIVATE="github.com/bcmi-labs*"
 
 # Pyenv stuff
 export PYENV_ROOT="$HOME/.pyenv"
@@ -20,16 +19,22 @@ export NVM_DIR="$HOME/.nvm"
 # Rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# if running bash
+# Ruby stuff
+if command -v ruby >/dev/null && command -v gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+# My stuff
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Source .bashrc
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	# shellcheck disable=SC1090
 	. "$HOME/.bashrc"
     fi
-fi
-
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
 fi
 
 ### Platform specific stuff
