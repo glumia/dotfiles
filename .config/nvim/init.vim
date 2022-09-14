@@ -244,7 +244,7 @@ nnoremap <leader>o :Buffers<cr>
 nnoremap <leader>i :Tags<cr>
 nnoremap <leader>f :Rg 
 
-" fugitive.vim (WIP)
+" fugitive.vim
 nnoremap <leader>q :G blame<cr>
 
 " ALE (note: this is sometimes overridden by language servers)
@@ -280,6 +280,7 @@ tnoremap <C-\> <C-\><C-n>
 nnoremap <c-s>n :tab split<cr>
 nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
+nnoremap <c-s>c :tabc<cr>
 
 " No need to stretch to exit
 inoremap jk <esc>
