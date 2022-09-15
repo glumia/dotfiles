@@ -36,6 +36,7 @@ alias gl="git log"
 alias glg="git log --all --decorate --oneline --graph"
 alias gm="git merge"
 alias gma="git merge --abort"
+alias gmb='git merge-base "$(git rev-parse --abbrev-ref origin/HEAD)" HEAD'
 alias gp="git push"
 alias grm="git rm"
 alias grb="git rebase"
