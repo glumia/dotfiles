@@ -103,6 +103,12 @@ call plug#begin()
   " vim-fugitive - Check project's README for features
   Plug 'tpope/vim-fugitive'
 
+  " nvim lua (kind of) stdlib - required by diffview.nvim
+  Plug 'nvim-lua/plenary.nvim'
+
+  " diffview.nvim: review changes within vim  
+  Plug 'sindrets/diffview.nvim'
+
   " vim-unimpaired: pairs of handy bracket mappings
   Plug 'tpope/vim-unimpaired'
 
@@ -162,16 +168,32 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 
-
 " Gruvbox theme
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
 
+" diffview.nvim
+lua << EOF
+require("diffview").setup({
+  use_icons = false,
+  signs = {
+    fold_closed = "▸",
+    fold_open = "▾",
+    done = "✓",
+  },
+  file_panel = {
+    win_config = {
+      position = "bottom",
+      height = 10, -- Same as quickfix list
+    },
+  },
+})
+EOF
+
 " }}}
 
 " LSP config {{{
-
 lua << EOF
 local lspconfig = require('lspconfig')
 
@@ -222,9 +244,7 @@ lspconfig.stylelint_lsp.setup{
     },
   },
 }
-
 EOF
-
 " }}}
 
 " Key mappings and custom commands {{{
