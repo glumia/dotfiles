@@ -267,6 +267,9 @@ nnoremap <leader>f :Rg
 " fugitive.vim
 nnoremap <leader>q :G blame<cr>
 
+" diffview.nvim
+nnoremap <leader>D :DiffviewOpen<cr>
+
 " ALE (note: this is sometimes overridden by language servers)
 nmap <leader>k <Plug>(ale_fix)
 
