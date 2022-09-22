@@ -10,6 +10,8 @@
 	excludesfile = ~/.gitignore
 	editor = nvim
 	pager = delta
+[push]
+	autosetupremote = true
 [pull]
 	rebase = true
 [http]
