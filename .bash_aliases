@@ -65,6 +65,11 @@ alias ls="ls --color=auto"
 alias l="ls -lhF" # ls with better defaults
 alias grep='grep --color=auto'
 command -v bat > /dev/null && alias cat="bat -p"
+if command -v kitty > /dev/null; then
+	alias s="kitty +kitten ssh"
+else
+	alias s="ssh"
+fi
 
 ### Docker compose shortcus
 alias dc="docker-compose"
