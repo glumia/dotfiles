@@ -122,6 +122,9 @@ call plug#begin()
   " Github permalinks for line under cursor or selection
   Plug 'pgr0ss/vim-github-url'
 
+  " Filetype detection and syntax highlighting for Helm templates
+  Plug 'towolf/vim-helm'
+
   " Theme
   Plug 'gruvbox-community/gruvbox'
 
@@ -205,6 +208,15 @@ local on_attach = function(client, bufnr)
       buf_set_keymap("n", "<leader>k", "<cmd>EslintFixAll<CR>", opts)
     end
   end
+
+  -- Disable yamlls for Helm templates
+  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+    vim.diagnostic.disable(bufnr)
+    vim.defer_fn(function()
+      vim.diagnostic.reset(nil, bufnr)
+    end, 1000)
+  end
+
 end
 
 lspconfig.gopls.setup{on_attach=on_attach}
