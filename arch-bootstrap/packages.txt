@@ -181,7 +181,7 @@ tracker3-miners
 tracker-miners
 transmission-gtk
 tree
-ttf-fira-code
+ttf-jetbrains-mono
 ttf-roboto
 turbostat
 udftools
