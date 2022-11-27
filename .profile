@@ -43,8 +43,6 @@ case "$(uname -s)" in
 		export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 		;;
 	"Linux")
-		# Docker (rootless install) stuff
-		export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
 		;;
 	"OpenBSD")
 		;;
