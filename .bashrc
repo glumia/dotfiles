@@ -72,5 +72,4 @@ fi
 # Pyenv -- Keep this at the end of this file
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
 fi
