@@ -24,6 +24,9 @@ if command -v ruby >/dev/null && command -v gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
+# Docker stuff
+export PATH="$HOME/.docker/bin:$PATH"
+
 # My stuff
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
