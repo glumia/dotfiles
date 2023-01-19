@@ -120,3 +120,14 @@ gocover(){
 	t=$(mktemp -t cover.XXXXXX)
 	go test -coverprofile="$t" "$@" && go tool cover -html "$t" && rm "$t"
 }
+
+# xwfutojson reads x-www-form-urlencoded data from stdin and prints it to stdout
+# as json.
+xwfutojson(){
+	python3 -c '
+import json
+from urllib.parse import parse_qsl
+
+print(json.dumps(dict(parse_qsl(input(), keep_blank_values=True))))
+' | jq
+}
