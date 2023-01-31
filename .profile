@@ -44,6 +44,7 @@ fi
 case "$(uname -s)" in
 	"Darwin")
 		export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
+		export PATH="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
 		;;
 	"Linux")
 		;;
