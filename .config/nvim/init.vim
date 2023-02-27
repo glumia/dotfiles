@@ -184,6 +184,9 @@ local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   local opts = { noremap=true, silent=true }
 
+  -- omnifunc (<c-x><c-o>)
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
   -- LSP Key mappings
   buf_set_keymap('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)           -- ca: Code Action
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)           -- gD: Go Declaration
