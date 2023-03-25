@@ -70,6 +70,10 @@ if command -v kitty > /dev/null; then
 else
 	alias s="ssh"
 fi
+if command -v fzf > /dev/null; then
+	# git branch pick
+	alias gbp="git branch | fzf -m | tr -d ' *'" 
+fi
 
 ### Docker compose shortcus
 alias dc="docker-compose"
