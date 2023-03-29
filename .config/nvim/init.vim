@@ -125,6 +125,9 @@ call plug#begin()
   " Filetype detection and syntax highlighting for Helm templates
   Plug 'towolf/vim-helm'
 
+  " Boilerplate assistant
+  Plug 'github/copilot.vim'
+
   " Theme
   Plug 'gruvbox-community/gruvbox'
 
