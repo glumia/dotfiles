@@ -9,6 +9,7 @@ alias g="git"
 alias ga="git add"
 alias gap="git add --patch --interactive"
 alias gb="git branch"
+alias gbp="git branch | fzf -m | tr -d ' *'" 
 alias gba="git branch -a"
 alias gbd="git branch -D"
 alias gbl="git blame -b -w"
@@ -69,10 +70,6 @@ if command -v kitty > /dev/null; then
 	alias s="kitty +kitten ssh"
 else
 	alias s="ssh"
-fi
-if command -v fzf > /dev/null; then
-	# git branch pick
-	alias gbp="git branch | fzf -m | tr -d ' *'" 
 fi
 
 ### Docker compose shortcus
