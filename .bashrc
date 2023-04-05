@@ -57,9 +57,6 @@ unset color_prompt
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
-# Brew
-[ -s /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Fix for 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
 

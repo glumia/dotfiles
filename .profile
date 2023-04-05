@@ -21,7 +21,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Ruby stuff
 if command -v ruby >/dev/null && command -v gem >/dev/null; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 # Docker stuff
@@ -29,8 +29,21 @@ export PATH="$HOME/.docker/bin:$PATH"
 
 # My stuff
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
+
+### Platform specific stuff
+case "$(uname -s)" in
+	"Darwin")
+		export PATH="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
+		export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+		[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+		;;
+	"Linux")
+		;;
+	"OpenBSD")
+		;;
+esac
 
 # Source .bashrc
 if [ -n "$BASH_VERSION" ]; then
@@ -39,19 +52,6 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
-
-### Platform specific stuff
-case "$(uname -s)" in
-	"Darwin")
-		export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
-		export PATH="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
-		export PATH="$HOME/Library/Python/3.9/bin:$PATH"
-		;;
-	"Linux")
-		;;
-	"OpenBSD")
-		;;
-esac
 
 # Further Pyenv Stuff
 if command -v pyenv 1>/dev/null 2>&1; then
