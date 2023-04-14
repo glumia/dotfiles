@@ -64,7 +64,7 @@ augroup nvimInitFType
   autocmd FileType yaml setlocal et ts=2 sw=2
   autocmd FileType vim setlocal et ts=2 sw=2
   autocmd FileType markdown setlocal tw=80 et ts=2 sw=2
-  autocmd FileType text setlocal tw=80 cc=80
+  autocmd FileType text setlocal et ts=2 sw=2 tw=80 cc=80
   autocmd FileType typescript setlocal et ts=2 sw=2
   autocmd FileType python setlocal et ts=4 sw=4
   autocmd FileType tex hi Error ctermbg=NONE
