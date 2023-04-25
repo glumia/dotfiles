@@ -88,9 +88,6 @@ call plug#begin()
   " Tagbar
   Plug 'preservim/tagbar'
 
-  " Editorconfig plugin
-  Plug 'editorconfig/editorconfig-vim'
-
   " vim-surround: s is a text-object for delimiters
   Plug 'tpope/vim-surround'
 
