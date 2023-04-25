@@ -237,13 +237,12 @@ else
 endif
 nnoremap <leader>o :Buffers<cr>
 nnoremap <leader>i :Tags<cr>
+nnoremap <leader>bi :BTags<cr>
 nnoremap <leader>f :Rg 
+nnoremap <leader>/ :BLines<cr>
 
 " fugitive.vim
 nnoremap <leader>q :G blame<cr>
-
-" diffview.nvim
-nnoremap <leader>D :DiffviewOpen<cr>
 
 " ALE (note: this is sometimes overridden by language servers)
 nmap <leader>k <Plug>(ale_fix)
@@ -257,12 +256,18 @@ nnoremap <c-p> :cprevious<cr>
 " LSP Restart
 nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
 
-" Convert spaces to tabs and viceversa
+" Convert spaces to tabs and vice-versa
 command TabsAreTabs :set noet | :retab!
 command TabsAreSpaces :set et | :retab!
 
 " Check spelling errors
-nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>:lw<cr>
+silent! !command -v codespell
+if v:shell_error == 0
+  nnoremap <leader>s :lex system('codespell ' . expand('%:p'))<cr>:lw<cr>
+else
+  nnoremap <leader>s :echoerr "`codespell` is missing!"<cr>
+endif
+
 
 " Yank path
 nnoremap <leader>yp :let @+=expand("%")<CR>
