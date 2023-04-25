@@ -144,9 +144,13 @@ let g:ale_fixers = {
 \ 'terraform': ['terraform'],
 \ 'nginx': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'xml': ['xmllint'],
+\ 'typescript': ['eslint'],
+\ 'less': ['prettier'],
 \}
 let g:ale_linters= {
 \ 'sh': ['shellcheck'],
+\ 'typescript': ['eslint'],
+\ 'less': ['stylelint'],
 \}
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 1
@@ -194,29 +198,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'Lp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)          -- Lp: Diagnostics Previous
   buf_set_keymap('n', 'Lk', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)         -- Lk: Diagnostics Help
 
-  -- Override code formatting with eslint
-  for _, value in ipairs({'javascript','javascriptreact','javascript.jsx','typescript',
-    'typescriptreact','typescript.tsx'}) do
-    if vim.bo.filetype == value then
-      buf_set_keymap("n", "<leader>k", "<cmd>EslintFixAll<CR>", opts)
-    end
-  end
-
 end
 
 lspconfig.gopls.setup{on_attach=on_attach}
 lspconfig.clangd.setup{on_attach=on_attach}
 lspconfig.pyright.setup{on_attach=on_attach}
 lspconfig.tsserver.setup{on_attach=on_attach}
-lspconfig.eslint.setup{on_attach=on_attach}
-lspconfig.stylelint_lsp.setup{
-  on_attach=on_attach,
-  settings = {
-    stylelintplus = {
-      autoFixOnFormat=true,
-    },
-  },
-}
 
 EOF
 
