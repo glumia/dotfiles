@@ -53,22 +53,10 @@ let mapleader = " "
 augroup nvimInitFType
   au!
 
-  autocmd FileType c setlocal et ts=2 sw=2 tw=80 cc=80
-  autocmd FileType h setlocal et ts=2 sw=2 tw=80 cc=80
-  autocmd FileType cpp setlocal et ts=2 sw=2 tw=80
-  autocmd FileType s setlocal noet ts=8 sw=8
-  autocmd FileType go setlocal noet ts=4 sw=4 makeprg=go\ build
-  autocmd FileType sh setlocal noet ts=4 sw=4
-  autocmd BufRead,BufNewFile *.js setlocal et ts=2 sw=2
-  autocmd FileType html setlocal et ts=2 sw=2
-  autocmd FileType yaml setlocal et ts=2 sw=2
-  autocmd FileType vim setlocal et ts=2 sw=2
-  autocmd FileType markdown setlocal tw=80 et ts=2 sw=2
-  autocmd FileType text setlocal et ts=2 sw=2 tw=80 cc=80
-  autocmd FileType typescript setlocal et ts=2 sw=2
-  autocmd FileType python setlocal et ts=4 sw=4
-  autocmd FileType tex hi Error ctermbg=NONE
-  autocmd FileType mail setlocal noautoindent cc=73
+  autocmd FileType c setlocal cc=80
+  autocmd FileType h setlocal cc=80
+  autocmd FileType text setlocal cc=80
+  autocmd FileType mail setlocal cc=73
   autocmd FileType gitcommit setlocal cc=73
   autocmd BufRead,BufNewFile *.mail setfiletype mail
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
@@ -102,6 +90,9 @@ call plug#begin()
 
   " vim-unimpaired: pairs of handy bracket mappings
   Plug 'tpope/vim-unimpaired'
+
+  " Detect tabstop and shiftwidth automatically
+  Plug 'tpope/vim-sleuth'
 
   " ALE - Asynchronous Linting Engine
   Plug 'dense-analysis/ale'
