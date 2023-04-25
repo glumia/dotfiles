@@ -202,14 +202,6 @@ local on_attach = function(client, bufnr)
     end
   end
 
-  -- Disable yamlls for Helm templates
-  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
-    vim.diagnostic.disable(bufnr)
-    vim.defer_fn(function()
-      vim.diagnostic.reset(nil, bufnr)
-    end, 1000)
-  end
-
 end
 
 lspconfig.gopls.setup{on_attach=on_attach}
@@ -217,7 +209,6 @@ lspconfig.clangd.setup{on_attach=on_attach}
 lspconfig.pyright.setup{on_attach=on_attach}
 lspconfig.tsserver.setup{on_attach=on_attach}
 lspconfig.eslint.setup{on_attach=on_attach}
-lspconfig.yamlls.setup{on_attach=on_attach}
 lspconfig.stylelint_lsp.setup{
   on_attach=on_attach,
   settings = {
