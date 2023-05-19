@@ -146,6 +146,7 @@ let g:ale_fixers = {
 \ 'xml': ['xmllint'],
 \ 'typescript': ['eslint'],
 \ 'less': ['prettier'],
+\ 'text': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_linters= {
 \ 'sh': ['shellcheck'],
