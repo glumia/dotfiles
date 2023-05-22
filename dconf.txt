@@ -1,10 +1,3 @@
-[org/gnome/desktop/background]
-color-shading-type='solid'
-picture-options='zoom'
-picture-uri='file:///home/gius/.local/share/backgrounds/anna-wangler-turtle-unsplash.jpg'
-primary-color='#000000000000'
-secondary-color='#000000000000'
-
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us')]
 xkb-options=['lv3:ralt_switch', 'caps:ctrl_modifier', 'compose:ralt']
@@ -17,18 +10,6 @@ repeat-interval=uint32 15
 [org/gnome/desktop/peripherals/touchpad]
 tap-to-click=true
 two-finger-scrolling-enabled=true
-
-[org/gnome/desktop/privacy]
-disable-microphone=false
-report-technical-problems=false
-
-[org/gnome/desktop/screensaver]
-color-shading-type='solid'
-lock-delay=uint32 0
-picture-options='zoom'
-picture-uri='file:///home/gius/.local/share/backgrounds/anna-wangler-turtle-unsplash.jpg'
-primary-color='#000000000000'
-secondary-color='#000000000000'
 
 [org/gnome/desktop/session]
 idle-delay=uint32 300
@@ -51,10 +32,3 @@ name='Kitty'
 power-button-action='interactive'
 sleep-inactive-ac-type='nothing'
 sleep-inactive-battery-type='nothing'
-
-[org/gnome/settings-daemon/plugins/xsettings]
-hinting='slight'
-
-[org/gnome/shell/extensions/dash-to-dock]
-dock-fixed=false
-preferred-monitor=0
