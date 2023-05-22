@@ -32,3 +32,27 @@ name='Kitty'
 power-button-action='interactive'
 sleep-inactive-ac-type='nothing'
 sleep-inactive-battery-type='nothing'
+
+[org/gnome/terminal/legacy]
+always-check-default-terminal=false
+theme-variant='system'
+
+[org/gnome/terminal/legacy/keybindings]
+full-screen='<Alt>Return'
+
+[org/gnome/terminal/legacy/profiles:]
+default='c30da97b-39f7-403d-bcbc-7bd42d02ff69'
+list=['c30da97b-39f7-403d-bcbc-7bd42d02ff69']
+
+[org/gnome/terminal/legacy/profiles:/:c30da97b-39f7-403d-bcbc-7bd42d02ff69]
+audible-bell=false
+background-color='rgb(249,245,215)'
+bold-color-same-as-fg=true
+cursor-shape='ibeam'
+foreground-color='rgb(60,56,54)'
+palette=['rgb(249,245,215)', 'rgb(204,36,29)', 'rgb(152,151,26)', 'rgb(215,153,33)', 'rgb(69,133,136)', 'rgb(177,98,134)', 'rgb(104,157,106)', 'rgb(124,111,100)', 'rgb(146,131,116)', 'rgb(157,0,6)', 'rgb(121,116,14)', 'rgb(181,118,20)', 'rgb(7,102,120)', 'rgb(143,63,113)', 'rgb(66,123,88)', 'rgb(60,56,54)']
+scroll-on-keystroke=false
+scrollback-unlimited=true
+scrollbar-policy='never'
+use-theme-colors=false
+visible-name='gruvbox-light'
