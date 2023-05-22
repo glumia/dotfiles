@@ -21,7 +21,7 @@ HISTSIZE=100000
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe.sh ] && eval "$(SHELL=/bin/sh lesspipe.sh)"
 [ -x /opt/homebrew/bin/lesspipe.sh ] && export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 
 # set prompt (non-color, unless we know we "want" color)
