@@ -91,7 +91,6 @@ hdparm
 htop
 hyperv
 imagemagick
-imagemagick-doc
 inetutils
 intel-ucode
 iputils
@@ -176,9 +175,7 @@ thunderbird
 tmon
 tmux
 tpm2-tss
-tracker
 tracker3-miners
-tracker-miners
 transmission-gtk
 tree
 ttf-jetbrains-mono
@@ -189,7 +186,6 @@ usbip
 usb_modeswitch
 usbmuxd
 usbutils
-vino
 vlc
 wget
 wireless-regdb
