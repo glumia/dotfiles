@@ -4,6 +4,7 @@ automake
 base
 base-devel
 bash-completion
+bat
 bind
 bind-tools
 bison
@@ -32,6 +33,7 @@ evince
 exfatprogs
 fakeroot
 fatresize
+fd
 fdupes
 ffmpeg
 file-roller
@@ -45,6 +47,7 @@ geckodriver
 gfeeds
 gimp
 git
+git-delta
 gnome-backgrounds
 gnome-boxes
 gnome-calendar
@@ -67,6 +70,7 @@ gnome-shell
 gnome-shell-extensions
 gnome-sound-recorder
 gnome-system-monitor
+gnome-terminal
 gnome-themes-extra
 gnome-tweaks
 gnome-user-docs
@@ -172,6 +176,7 @@ tcpdump
 testdisk
 texinfo
 thunderbird
+tldr
 tmon
 tmux
 tpm2-tss
@@ -180,12 +185,14 @@ transmission-gtk
 tree
 ttf-jetbrains-mono
 ttf-roboto
+ttf-ubuntu-font-family
 turbostat
 udftools
 usbip
 usb_modeswitch
 usbmuxd
 usbutils
+vivid
 vlc
 wget
 wireless-regdb
