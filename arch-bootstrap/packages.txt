@@ -1,4 +1,5 @@
 alsa-utils
+alacritty
 autoconf
 automake
 base
