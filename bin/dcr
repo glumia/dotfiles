@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# `docker-compose run` with hot code reloading.
+#
+# Usage:
+#   dcr SERVICE
+#
+set -eu
+
+project=$(basename "$PWD")
+service=$1
+
+cleanup() {
+    running_containers=$(docker container ls | grep "${project}-${service}" | cut -d' ' -f1)
+    # shellcheck disable=SC2086
+    [ -n "$running_containers" ] && docker container kill $running_containers
+
+    stopped_containers=$(docker container ls -a | grep "${project}_${service}" | cut -d' ' -f1)
+    # shellcheck disable=SC2086
+    [ -n "$stopped_containers" ] && docker container rm $stopped_containers
+
+    return 0
+}
+
+trap cleanup INT
+
+while true; do
+    cleanup
+    container=$(docker-compose run -d "$service")
+    docker logs -f "$container" &
+    diff=$(git diff)
+    while [ "$diff" = "$(git diff)" ]; do
+        sleep 2
+    done
+done
