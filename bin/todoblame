@@ -1,0 +1,5 @@
+#!/bin/bash
+# Search for all the TODO comments in the repository and show who has added them.
+git grep -n 'TODO' | while IFS=: read -r file line _; do
+    git --no-pager blame --show-name -L "$line,$line" "$file"
+done
