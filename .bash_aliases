@@ -77,6 +77,9 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
 
+### Terraform
+alias tf="terraform"
+
 ### Git config for work repositories
 # Hey you! Don't bother to report this to my company as a data leak, all my public GPG
 # keys (and their emails) are already available at github.com/glumia.gpg (as those of
