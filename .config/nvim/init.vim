@@ -147,6 +147,7 @@ let g:ale_fixers = {
 \ 'typescript': ['eslint'],
 \ 'less': ['prettier'],
 \ 'text': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'sql': ['sqlfluff'],
 \}
 let g:ale_linters= {
 \ 'sh': ['shellcheck'],

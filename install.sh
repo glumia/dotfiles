@@ -18,6 +18,7 @@ DOTFILES="
 	.gitconfig
 	.gitignore
 	.tmux.conf
+	.sqlfluff
 "
 for file in $DOTFILES; do
 	printf "\tlinking ~/%s to ./%s\n" "$file" "$file"
