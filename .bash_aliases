@@ -96,6 +96,9 @@ alias sls="./node_modules/.bin/sls"
 ### Tmux related
 alias mux="tmuxinator"
 
+### k9s doesn't play well with TERMINFO
+alias k9s="TERM=xterm-256color k9s"
+
 ### Platform specific aliases
 case "$(uname -s)" in
 	"Darwin")
