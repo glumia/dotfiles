@@ -132,7 +132,7 @@ let g:fzf_preview_window = ['up:70%:hidden', 'ctrl-/']
 let g:ale_linters_explicit = 1
 let g:ale_disable_lsp = 1
 let g:ale_fixers = {
-\ 'python': ['isort', 'black'],
+\ 'python': ['ruff', 'ruff_format'],
 \ 'yaml': ['prettier'],
 \ 'json': ['prettier'],
 \ 'html': ['prettier'],
