@@ -96,8 +96,9 @@ alias sls="./node_modules/.bin/sls"
 ### Tmux related
 alias mux="tmuxinator"
 
-### k9s doesn't play well with TERMINFO
+### tools that don't play well with TERM=tmux-256color
 alias k9s="TERM=xterm-256color k9s"
+alias ngrok="TERM=xterm-256color ngrok"
 
 ### Platform specific aliases
 case "$(uname -s)" in
