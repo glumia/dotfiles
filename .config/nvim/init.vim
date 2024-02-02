@@ -153,12 +153,14 @@ let g:ale_linters= {
 \ 'sh': ['shellcheck'],
 \ 'typescript': ['eslint'],
 \ 'less': ['stylelint'],
+\ 'python': ['ruff'],
 \}
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
+let g:ale_python_ruff_options = '--extend-select I' " enable isort
 
 
 " Gruvbox theme
