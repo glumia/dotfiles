@@ -35,10 +35,6 @@ else
 fi
 unset color_prompt
 
-# Load aliases
-[ -s ~/.bash_aliases ] && . ~/.bash_aliases
-[ -s ~/.bash_private ] && . ~/.bash_private
-
 # Load completion
 [ -s /usr/share/bash-completion/bash_completion ] && \
     . /usr/share/bash-completion/bash_completion
@@ -56,6 +52,10 @@ unset color_prompt
 # NVM
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+
+# Load aliases
+[ -s ~/.bash_aliases ] && . ~/.bash_aliases
+[ -s ~/.bash_private ] && . ~/.bash_private
 
 # Fix for 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)

@@ -58,6 +58,13 @@ alias gpl="git pull"
 alias gup="git pull --rebase"
 alias gt="git tag -a"
 
+### Configure auto-complete for the most used git aliases
+__git_complete gco _git_checkout
+__git_complete gsh _git_show
+__git_complete gd _git_diff
+__git_complete gl _git_log
+__git_complete grs _git_reset
+
 ### Change directory to root path of git repository
 alias c='cd $(git rev-parse --show-toplevel)'
 
