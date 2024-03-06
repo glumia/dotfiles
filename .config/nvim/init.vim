@@ -276,9 +276,6 @@ nnoremap <c-s>h :tabp<cr>
 nnoremap <c-s>l :tabn<cr>
 nnoremap <c-s>c :tabc<cr>
 
-" No need to stretch to exit
-inoremap jk <esc>
-
 " Swap buffer
 nnoremap <leader>d :b#<cr>
 
