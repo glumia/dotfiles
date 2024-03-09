@@ -22,7 +22,7 @@ set cc=89
 augroup nvimInit
   au!
 
-  " Jump to the last position when reopening a file
+  " Jump to the last position when reopening a file.
   autocmd BufReadPost *
     \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     \ |   exe "normal! g`\""
@@ -45,6 +45,15 @@ set background=light
 " Use space as leader key.
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+
+" The default of 4s causes noticeable delays (affects plugins like tagbar and
+" coc.nvim).
+set updatetime=300
+
+" Some language servers have issues with backup files (see
+" github.com/neoclide/coc.nvim/issues/649).
+set nobackup
+set nowritebackup
 
 " }}}
 
@@ -97,8 +106,8 @@ call plug#begin()
   " ALE - Asynchronous Linting Engine
   Plug 'dense-analysis/ale'
 
-  " Neovim LSP config
-  Plug 'neovim/nvim-lspconfig'
+  " Language servers and autocompletion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Fuzzy finder
   Plug 'junegunn/fzf'
@@ -121,14 +130,17 @@ call plug#begin()
 
 call plug#end()
 
+" }}}
 
-" NERDTree config
+" Plugins config {{{
+
+" NERDTree
 let NERDTreeShowHidden=1
 
-" FZF Config
+" FZF
 let g:fzf_preview_window = ['up:70%:hidden', 'ctrl-/']
 
-" ALE Config
+" ALE
 let g:ale_linters_explicit = 1
 let g:ale_disable_lsp = 1
 let g:ale_fixers = {
@@ -162,7 +174,6 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_python_ruff_options = '--extend-select I' " enable isort
 
-
 " Gruvbox theme
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
@@ -170,50 +181,79 @@ colorscheme gruvbox
 
 " }}}
 
-" LSP config {{{
+" Language server and autocompletion {{{
 
-lua << EOF
-local lspconfig = require('lspconfig')
+" Use tab for completion.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  local opts = { noremap=true, silent=true }
+" Press enter to accept completion (needed for completions that also trigger
+" code actions like automatic imports).
+inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
 
-  -- omnifunc (<c-x><c-o>)
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+" Mappings
+nnoremap <silent> Ln <Plug>(coc-diagnostic-next)
+noremap <silent> Lp <Plug>(coc-diagnostic-prev)
+nnoremap <silent> LL :CocDiagnostics<cr>
+noremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gD <Plug>(coc-declaration)
+nnoremap <silent> gt <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gI :call CocAction('showIncomingCalls')<cr>
+nnoremap <silent> gO :call CocAction('showOutgoingCalls')<cr>
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+nnoremap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>ca <Plug>(coc-codeaction-cursor)
+nnoremap <leader>cl <Plug>(coc-codelens-action)
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+nnoremap <silent><nowait> <space>E  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>C  :<C-u>CocList commands<cr>
 
-  -- LSP Key mappings
-  buf_set_keymap('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)           -- ca: Code Action
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)           -- gD: Go Declaration
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)            -- gd: Go Definition
-  --buf_set_keymap('n', '<leader>k', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)     -- <leader>k:  Format (buffer)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)                  -- K:  Help
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)        -- gi: Go Implementation
-  buf_set_keymap('n', 'gu', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)        -- gu: Go Users (users of this obj)
-  buf_set_keymap('n', 'gU', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)        -- gU: Go Used  (used by this obj)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)            -- gr: Go References
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)        -- <leader>rn: ReName
-  buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)       -- gt: Go Type
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)     -- C-k:  Help
+" Map function and class text objects.
+xnoremap if <Plug>(coc-funcobj-i)
+onoremap if <Plug>(coc-funcobj-i)
+xnoremap af <Plug>(coc-funcobj-a)
+onoremap af <Plug>(coc-funcobj-a)
+xnoremap ic <Plug>(coc-classobj-i)
+onoremap ic <Plug>(coc-classobj-i)
+xnoremap ac <Plug>(coc-classobj-a)
+onoremap ac <Plug>(coc-classobj-a)
 
-  buf_set_keymap('n', 'LL', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)         -- LL: Location List
-  buf_set_keymap('n', 'Ln', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)          -- Ln: Diagnostics Next
-  buf_set_keymap('n', 'Lp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)          -- Lp: Diagnostics Previous
-  buf_set_keymap('n', 'Lk', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)         -- Lk: Diagnostics Help
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-end
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
 
-lspconfig.gopls.setup{on_attach=on_attach}
-lspconfig.clangd.setup{on_attach=on_attach}
-lspconfig.pyright.setup{on_attach=on_attach}
-lspconfig.tsserver.setup{on_attach=on_attach}
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-EOF
+" Language server formatting.
+nnoremap <silent> <leader>K :Format<cr>:OR<cr>
 
 " }}}
 
-" Key mappings and custom commands {{{
+" Mappings and custom commands {{{
 
 nnoremap <leader>w :NERDTreeFind<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
@@ -235,7 +275,7 @@ nnoremap <leader>/ :BLines<cr>
 " fugitive.vim
 nnoremap <leader>q :G blame<cr>
 
-" ALE (note: this is sometimes overridden by language servers)
+" ALE Fix
 nmap <leader>k <Plug>(ale_fix)
 
 nnoremap <leader>l :nohlsearch<cr>
@@ -243,9 +283,6 @@ nnoremap <leader>R :source $MYVIMRC<CR>
 nnoremap <leader>j :r!date<CR>o
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprevious<cr>
-
-" LSP Restart
-nnoremap <leader>L :LspStop<CR>:sleep 100m<CR>:e<CR>
 
 " Convert spaces to tabs and vice-versa
 command TabsAreTabs :set noet | :retab!
@@ -258,7 +295,6 @@ if v:shell_error == 0
 else
   nnoremap <leader>s :echoerr "`codespell` is missing!"<cr>
 endif
-
 
 " Yank path
 nnoremap <leader>yp :let @+=expand("%")<CR>
