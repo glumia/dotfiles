@@ -59,6 +59,7 @@ alias gup="git pull --rebase"
 alias gt="git tag -a"
 
 ### Configure auto-complete for the most used git aliases
+__load_completion git # force bash-completion to load the git completion helpers
 __git_complete gco _git_checkout
 __git_complete gsh _git_show
 __git_complete gd _git_diff
