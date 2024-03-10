@@ -183,20 +183,8 @@ colorscheme gruvbox
 
 " Language server and autocompletion {{{
 
-" Use tab for completion.
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Press enter to accept completion (needed for completions that also trigger
-" code actions like automatic imports).
-inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
+" Use vim default <c-n> and <c-p> to navigate completions, tab to accept one.
+inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<tab>"
 
 " Mappings
 nnoremap <silent> Ln <Plug>(coc-diagnostic-next)
