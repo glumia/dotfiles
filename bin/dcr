@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# `docker-compose run` with hot code reloading.
+# `docker compose run` with hot code reloading.
 #
 # Usage:
 #   dcr SERVICE
@@ -26,7 +26,7 @@ trap cleanup INT
 
 while true; do
     cleanup
-    container=$(docker-compose run --rm -d "$service")
+    container=$(docker compose run --rm -d "$service")
     docker logs -f "$container" &
     diff=$(git diff)
     while [ "$diff" = "$(git diff)" ]; do

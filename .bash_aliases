@@ -81,9 +81,9 @@ else
 fi
 
 ### Docker compose shortcus
-alias dc="docker-compose"
-alias dcu="docker-compose up"
-alias dcd="docker-compose down"
+alias dc="docker compose"
+alias dcu="docker compose up"
+alias dcd="docker compose down"
 
 ### Terraform
 alias tf="terraform"
