@@ -27,3 +27,5 @@
 	colorMoved = default
 [submodule]
 	recurse = true
+[rebase]
+	updateRefs = true
