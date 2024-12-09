@@ -111,6 +111,7 @@ alias ngrok="TERM=xterm-256color ngrok"
 ### Platform specific aliases
 case "$(uname -s)" in
 	"Darwin")
+		alias upgrade="brew update && brew upgrade && nvim +PlugUpdate +PlugUpgrade +CocUpdate +qa"
 		;;
 	"Linux")
 		alias pbcopy="xclip -selection clipboard"
