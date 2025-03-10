@@ -149,6 +149,10 @@ let g:ale_fixers = {
 \ 'json': ['prettier'],
 \ 'html': ['prettier'],
 \ 'css': ['prettier'],
+\ 'javascript': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'typescriptreact': ['prettier'],
+\ 'less': ['prettier'],
 \ 'arduino': ['clang-format'],
 \ 'cpp': ['clang-format'],
 \ 'c': ['clang-format'],
@@ -156,14 +160,11 @@ let g:ale_fixers = {
 \ 'terraform': ['terraform'],
 \ 'nginx': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'xml': ['xmllint'],
-\ 'typescript': ['eslint'],
-\ 'less': ['prettier'],
 \ 'text': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'sql': ['sqlfluff'],
 \}
 let g:ale_linters= {
 \ 'sh': ['shellcheck'],
-\ 'typescript': ['eslint'],
 \ 'less': ['stylelint'],
 \ 'python': ['ruff'],
 \}
