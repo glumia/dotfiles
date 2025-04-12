@@ -1,0 +1,119 @@
+#! /bin/bash
+set -euo pipefail
+
+print_help() {
+    echo "Usage: $0 <merged-branch-name>
+
+Suppose you have a stack of git branches based one on top of the other:
+
+   main
+   └── my-branch-1
+       └── my-branch-2
+           └── my-branch-3
+               └── my-branch-4
+
+You just merged my-branch-1 into main remotely, now you want to delete this
+branch locally, fetch the latest version of main, rebase all of the remaining
+branches and push their new version.
+
+Normally you'd do something like this:
+
+$ git fetch
+$ git checkout my-branch-4
+$ git rebase --interactive --update-refs origin/main
+$ git push --force
+$ git checkout my-branch-3
+$ git push --force
+$ git checkout my-branch-2
+$ git push --force
+$ git branch --delete my-branch-1
+
+This script does the same thing, requiring you to provide only the name of the
+branch that you just merged into main.
+
+For more about stacking, see https://www.stacking.dev/."
+}
+
+declare -a dependent_branches
+
+find_dependent_branches() {
+    local base_branch=$1
+    dependent_branches=()
+
+    for branch in $(git branch --format="%(refname:short)"); do
+        if [ "$branch" != "$base_branch" ] && [ "$branch" != "main" ]; then
+            if git merge-base --is-ancestor "$base_branch" "$branch" 2>/dev/null; then
+                dependent_branches+=("$branch")
+            fi
+        fi
+    done
+
+    # sort branches so that the most dependent branch comes first (my-branch-1, my-branch-2, ...)
+    local sorted_branches=()
+    for branch in "${dependent_branches[@]}"; do
+        local position=${#sorted_branches[@]}
+        for ((i = 0; i < ${#sorted_branches[@]}; i++)); do
+            if git merge-base --is-ancestor "$branch" "${sorted_branches[i]}" 2>/dev/null; then
+                position=$i
+                break
+            fi
+        done
+        sorted_branches=("${sorted_branches[@]:0:$position}" "$branch" "${sorted_branches[@]:$position}")
+    done
+
+    dependent_branches=("${sorted_branches[@]}")
+}
+
+if [ $# -eq 0 ]; then
+    print_help
+    exit 0
+fi
+for arg in "$@"; do
+    if [ "$arg" = "-h" ] || [ "$arg" = "--help" ]; then
+        print_help
+        exit 0
+    fi
+done
+
+merged_branch_name=$1
+if ! git rev-parse --verify "$merged_branch_name" &>/dev/null; then
+    echo "Branch '$merged_branch_name' does not exist."
+    exit 1
+fi
+
+echo "> git fetch"
+git fetch
+
+echo "> Identifying the branches that depend on $merged_branch_name..."
+find_dependent_branches "$merged_branch_name"
+if [ ${#dependent_branches[@]} -eq 0 ]; then
+    echo "No branches found that depend on $merged_branch_name."
+    exit 1
+fi
+echo "${merged_branch_name}"
+for ((i=0; i<${#dependent_branches[@]}; i++)); do
+    padding="    "
+    for ((j=0; j<i; j++)); do
+        padding="$padding    "
+    done
+    if [ "$i" -lt "$((${#dependent_branches[@]}-1))" ]; then
+        echo "${padding}└── ${dependent_branches[$i]}"
+        if ! git merge-base --is-ancestor "${dependent_branches[$i]}" "${dependent_branches[$((i+1))]}" 2>/dev/null; then
+            echo "Error: branches form a tree instead of a stack (${dependent_branches[$i]} is not an ancestor of ${dependent_branches[$((i+1))]})."
+            exit 1
+        fi
+    else
+        echo "${padding}└── ${dependent_branches[$i]}"
+    fi
+done
+
+echo "> git rebase --interactive --update-refs origin/main ${dependent_branches[${#dependent_branches[@]}-1]}"
+git rebase --interactive --update-refs origin/main "${dependent_branches[${#dependent_branches[@]}-1]}"
+
+for (( i=${#dependent_branches[@]}-1 ; i>=0 ; i-- )) ; do
+    echo "> git push --force-with-lease origin ${dependent_branches[i]}"
+    git push --force-with-lease origin "${dependent_branches[i]}"
+done
+
+echo "> git branch --delete $merged_branch_name"
+git branch --delete "$merged_branch_name"
